@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+<title>phpMyAdmin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<base href="http://www.phpmyadmin.net/phpMyAdmin/" />
+<script language="JavaScript" type="text/javascript">
+<!--
+    /* added 2004-06-10 by Michael Keck
+     *       we need this for Backwards-Compatibility and resolving problems
+     *       with non DOM browsers, which may have problems with css 2 (like NC 4)
+    */
+    var isDOM      = (typeof(document.getElementsByTagName) != 'undefined'
+                      && typeof(document.createElement) != 'undefined')
+                   ? 1 : 0;
+    var isIE4      = (typeof(document.all) != 'undefined'
+                      && parseInt(navigator.appVersion) >= 4)
+                   ? 1 : 0;
+    var isNS4      = (typeof(document.layers) != 'undefined')
+                   ? 1 : 0;
+    var capable    = (isDOM || isIE4 || isNS4)
+                   ? 1 : 0;
+    // Uggly fix for Opera and Konqueror 2.2 that are half DOM compliant
+    if (capable) {
+        if (typeof(window.opera) != 'undefined') {
+            var browserName = ' ' + navigator.userAgent.toLowerCase();
+            if ((browserName.indexOf('konqueror 7') == 0)) {
+                capable = 0;
+            }
+        } else if (typeof(navigator.userAgent) != 'undefined') {
+            var browserName = ' ' + navigator.userAgent.toLowerCase();
+            if ((browserName.indexOf('konqueror') > 0) && (browserName.indexOf('konqueror/3') == 0)) {
+                capable = 0;
+            }
+        } // end if... else if...
+    } // end if
+    document.writeln('<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?lang=en-iso-8859-1&amp;js_frame=right&amp;js_isDOM=' + isDOM + '" />');
+//-->
+</script>
+<noscript>
+    <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?lang=en-iso-8859-1&amp;js_frame=right" />
+</noscript>
+    <script type="text/javascript" language="javascript">
+    <!--
+    // Updates the title of the frameset if possible (ns4 does not allow this)
+    if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
+        && typeof(parent.document.title) == 'string') {
+        parent.document.title = 'www.phpmyadmin.net >> mysql.sourceforge.net >> phpmyadmin  >> cines | phpMyAdmin 2.6.2-dev';
+    }
+    
+    // js form validation stuff
+    var errorMsg0   = 'Missing value in the form !';
+    var errorMsg1   = 'This is not a number!';
+    var errorMsg2   = ' is not a valid row number!';
+    var noDropDbMsg = '"DROP DATABASE" statements are disabled.';
+    var confirmMsg  = 'Do you really want to ';
+    var confirmMsgDropDB  = 'You are about to DESTROY a complete database!';
+    //-->
+    </script>
+    <script src="libraries/functions.js" type="text/javascript" language="javascript"></script>
+        
+        <meta name="OBGZip" content="true" />
+    </head>
+
+
+        <body bgcolor="#F5F5F5">
+    <table border="0" cellpadding="0" cellspacing="0" id="serverinfo">
+    <tr>
+        <td class="serverinfo">Server:&nbsp;<a href="main.php?lang=en-iso-8859-1&amp;server=1"><img src="./themes/original/img/s_host.png" width="16" height="16" border="0" alt="mysql.sourceforge.net" />mysql.sourceforge.net</a>
+</td>
+
+        <td class="serverinfo"><div></div></td>
+            <td class="serverinfo">Database:&nbsp;<a href="db_details_structure.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin"><img src="./themes/original/img/s_db.png" width="16" height="16" border="0" alt="phpmyadmin" />phpmyadmin</a>
+</td>
+
+        <td class="serverinfo"><div></div></td>
+            <td class="serverinfo">Table:&nbsp;<a href="tbl_properties_structure.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines"><img src="./themes/original/img/s_tbl.png" width="16" height="16" border="0" alt="cines" />cines</a>
+</td>
+
+    </tr>
+</table><!-- top menu -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%" id="topmenu">
+    <tr>
+        <td class="nav" align="left" nowrap="nowrap" valign="bottom">            <table border="0" cellpadding="0" cellspacing="0"><tr>                <td nowrap="nowrap"><img src="./themes/original/img/spacer.png" width="2" height="1" border="0" alt="" /></td>                <td class="navSpacer"><img src="./themes/original/img/spacer.png" width="1" height="1" border="0" alt="" /></td>
+        <td class="navActive" nowrap="nowrap">
+            <a href="tbl_properties_structure.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php"><img src="./themes/original/img/b_props.png" width="16" height="16" border="0" hspace="2" align="middle" alt="Structure" />Structure</a>
+        </td>
+        <td class="navSpacer"><img src="./themes/original/img/spacer.png" width="1" height="1" border="0" alt="" /></td>
+        <td class="navNormal" nowrap="nowrap">
+            <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=SELECT+%2A+FROM+%60cines%60&amp;pos=0"><img src="./themes/original/img/b_browse.png" width="16" height="16" border="0" hspace="2" align="middle" alt="Browse" />Browse</a>
+        </td>
+        <td class="navSpacer"><img src="./themes/original/img/spacer.png" width="1" height="1" border="0" alt="" /></td>
+        <td class="navNormal" nowrap="nowrap">
+            <a href="tbl_properties.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php"><img src="./themes/original/img/b_sql.png" width="16" height="16" border="0" hspace="2" align="middle" alt="SQL" />SQL</a>
+        </td>
+        <td class="navSpacer"><img src="./themes/original/img/spacer.png" width="1" height="1" border="0" alt="" /></td>
+        <td class="navNormal" nowrap="nowrap">
+            <a href="tbl_select.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php"><img src="./themes/original/img/b_search.png" width="16" height="16" border="0" hspace="2" align="middle" alt="Search" />Search</a>
+        </td>
+        <td class="navSpacer"><img src="./themes/original/img/spacer.png" width="1" height="1" border="0" alt="" /></td>
+        <td class="navNormal" nowrap="nowrap">
+            <a href="tbl_change.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php"><img src="./themes/original/img/b_insrow.png" width="16" height="16" border="0" hspace="2" align="middle" alt="Insert" />Insert</a>
+        </td>
+        <td class="navSpacer"><img src="./themes/original/img/spacer.png" width="1" height="1" border="0" alt="" /></td>
+        <td class="navNormal" nowrap="nowrap">
+            <a href="tbl_properties_export.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;single_table=true"><img src="./themes/original/img/b_tblexport.png" width="16" height="16" border="0" hspace="2" align="middle" alt="Export" />Export</a>
+        </td>
+        <td class="navSpacer"><img src="./themes/original/img/spacer.png" width="1" height="1" border="0" alt="" /></td>
+        <td class="navNormal" nowrap="nowrap">
+            <a href="tbl_properties_operations.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php"><img src="./themes/original/img/b_tblops.png" width="16" height="16" border="0" hspace="2" align="middle" alt="Operations" />Operations</a>
+        </td>
+        <td class="navSpacer"><img src="./themes/original/img/spacer.png" width="1" height="1" border="0" alt="" /></td>
+        <td class="navDrop" nowrap="nowrap">
+            <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=DELETE+FROM+%60cines%60&amp;zero_rows=Table+cines+has+been+emptied"onclick="return confirmLink(this, 'DELETE FROM `cines`')"><img src="./themes/original/img/b_empty.png" width="16" height="16" border="0" hspace="2" align="middle" alt="Empty" />Empty</a>
+        </td>
+        <td class="navSpacer"><img src="./themes/original/img/spacer.png" width="1" height="1" border="0" alt="" /></td>
+        <td class="navDrop" nowrap="nowrap">
+            <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;reload=1&amp;purge=1&amp;sql_query=DROP+TABLE+%60cines%60&amp;zero_rows=Table+cines+has+been+dropped"onclick="return confirmLink(this, 'DROP TABLE `cines`')"><img src="./themes/original/img/b_deltbl.png" width="16" height="16" border="0" hspace="2" align="middle" alt="Drop" />Drop</a>
+        </td>
+        <td class="navSpacer"><img src="./themes/original/img/spacer.png" width="1" height="1" border="0" alt="" /></td>
+                <td nowrap="nowrap"><img src="./themes/original/img/spacer.png" width="2" height="1" border="0" alt="" /></td>            </tr></table>
+        </td>
+    </tr>
+</table>
+
+<br />
+
+<!-- TABLE INFORMATION -->
+
+<form method="post" action="tbl_properties_structure.php" name="fieldsForm">
+    <input type="hidden" name="lang" value="en-iso-8859-1" />
+<input type="hidden" name="server" value="1" />
+<input type="hidden" name="db" value="phpmyadmin" />
+<input type="hidden" name="table" value="cines" />
+<table border="0" cellpadding="2" cellspacing="1">
+<tr>
+    <th id="th1">&nbsp;</th>
+    <th id="th2">&nbsp;Field&nbsp;</th>
+    <th id="th3">Type</th>
+    <th id="th4">Attributes</th>
+    <th id="th5">Null</th>
+    <th id="th6">Default</th>
+    <th id="th7">Extra</th>
+    <th colspan="6" id="th8">Action</th>
+</tr>
+
+
+<tr  onmouseover="setPointer(this, 1, 'over', '#E5E5E5', '#CCFFCC', '#FFCC99');" onmouseout="setPointer(this, 1, 'out', '#E5E5E5', '#CCFFCC', '#FFCC99');" onmousedown="setPointer(this, 1, 'click', '#E5E5E5', '#CCFFCC', '#FFCC99');">
+        <td align="center" bgcolor="#E5E5E5">
+        <input type="checkbox" name="selected_fld[]" value="id_cine" id="checkbox_row_1"  />
+    </td>
+            <td  onmousedown="document.getElementById('checkbox_row_1').checked = (document.getElementById('checkbox_row_1').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;<label onclick="return (document.getElementById('checkbox_row_1') ? false : true)" for="checkbox_row_1"><u>id_cine</u></label>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_1').checked = (document.getElementById('checkbox_row_1').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">int(11)<bdo dir="ltr"></bdo></td>
+    <td  onmousedown="document.getElementById('checkbox_row_1').checked = (document.getElementById('checkbox_row_1').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_1').checked = (document.getElementById('checkbox_row_1').checked ? false : true);"  bgcolor="#E5E5E5">No&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_1').checked = (document.getElementById('checkbox_row_1').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_1').checked = (document.getElementById('checkbox_row_1').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">auto_increment&nbsp;</td>
+        <td align="center" bgcolor="#E5E5E5">
+        <a href="tbl_alter.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;field=id_cine">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_edit.png" alt="Change" title="Change" border="0" /></a>
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+%60id_cine%60&amp;cpurge=1&amp;purgekey=id_cine&amp;zero_rows=Field+id_cine+has+been+dropped"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP `id_cine`')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_drop.png" alt="Drop" title="Drop" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+PRIMARY+KEY%2C+ADD+PRIMARY+KEY%28%60id_cine%60%29&amp;zero_rows=A+primary+key+has+been+added+on+id_cine"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP PRIMARY KEY, ADD PRIMARY KEY(`id_cine`)')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_primary.png" alt="Primary" title="Primary" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+INDEX%28%60id_cine%60%29&amp;zero_rows=An+index+has+been+added+on+id_cine">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_index.png" alt="Index" title="Index" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+UNIQUE%28%60id_cine%60%29&amp;zero_rows=An+index+has+been+added+on+id_cine">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_unique.png" alt="Unique" title="Unique" border="0" /></a>
+            
+    </td>
+    
+    <td align="center" bgcolor="#E5E5E5" nowrap="nowrap">
+        <img hspace="2" width="16" height="16" src="./themes/original/img/bd_ftext.png" alt="Fulltext" title="Fulltext" border="0" />
+    </td>
+        
+</tr>
+    
+<tr  onmouseover="setPointer(this, 2, 'over', '#D5D5D5', '#CCFFCC', '#FFCC99');" onmouseout="setPointer(this, 2, 'out', '#D5D5D5', '#CCFFCC', '#FFCC99');" onmousedown="setPointer(this, 2, 'click', '#D5D5D5', '#CCFFCC', '#FFCC99');">
+        <td align="center" bgcolor="#D5D5D5">
+        <input type="checkbox" name="selected_fld[]" value="nombre" id="checkbox_row_2"  />
+    </td>
+            <td  onmousedown="document.getElementById('checkbox_row_2').checked = (document.getElementById('checkbox_row_2').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">&nbsp;<label onclick="return (document.getElementById('checkbox_row_2') ? false : true)" for="checkbox_row_2">nombre</label>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_2').checked = (document.getElementById('checkbox_row_2').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">char(100)<bdo dir="ltr"></bdo></td>
+    <td  onmousedown="document.getElementById('checkbox_row_2').checked = (document.getElementById('checkbox_row_2').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_2').checked = (document.getElementById('checkbox_row_2').checked ? false : true);"  bgcolor="#D5D5D5">Yes&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_2').checked = (document.getElementById('checkbox_row_2').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap"><i>NULL</i>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_2').checked = (document.getElementById('checkbox_row_2').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">&nbsp;</td>
+        <td align="center" bgcolor="#D5D5D5">
+        <a href="tbl_alter.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;field=nombre">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_edit.png" alt="Change" title="Change" border="0" /></a>
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+%60nombre%60&amp;cpurge=1&amp;purgekey=nombre&amp;zero_rows=Field+nombre+has+been+dropped"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP `nombre`')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_drop.png" alt="Drop" title="Drop" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+PRIMARY+KEY%2C+ADD+PRIMARY+KEY%28%60nombre%60%29&amp;zero_rows=A+primary+key+has+been+added+on+nombre"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP PRIMARY KEY, ADD PRIMARY KEY(`nombre`)')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_primary.png" alt="Primary" title="Primary" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+INDEX%28%60nombre%60%29&amp;zero_rows=An+index+has+been+added+on+nombre">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_index.png" alt="Index" title="Index" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+UNIQUE%28%60nombre%60%29&amp;zero_rows=An+index+has+been+added+on+nombre">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_unique.png" alt="Unique" title="Unique" border="0" /></a>
+            
+    </td>
+    
+    <td align="center" bgcolor="#D5D5D5" nowrap="nowrap">
+        <img hspace="2" width="16" height="16" src="./themes/original/img/bd_ftext.png" alt="Fulltext" title="Fulltext" border="0" />
+    </td>
+        
+</tr>
+    
+<tr  onmouseover="setPointer(this, 3, 'over', '#E5E5E5', '#CCFFCC', '#FFCC99');" onmouseout="setPointer(this, 3, 'out', '#E5E5E5', '#CCFFCC', '#FFCC99');" onmousedown="setPointer(this, 3, 'click', '#E5E5E5', '#CCFFCC', '#FFCC99');">
+        <td align="center" bgcolor="#E5E5E5">
+        <input type="checkbox" name="selected_fld[]" value="imagen" id="checkbox_row_3"  />
+    </td>
+            <td  onmousedown="document.getElementById('checkbox_row_3').checked = (document.getElementById('checkbox_row_3').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;<label onclick="return (document.getElementById('checkbox_row_3') ? false : true)" for="checkbox_row_3">imagen</label>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_3').checked = (document.getElementById('checkbox_row_3').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">char(50)<bdo dir="ltr"></bdo></td>
+    <td  onmousedown="document.getElementById('checkbox_row_3').checked = (document.getElementById('checkbox_row_3').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_3').checked = (document.getElementById('checkbox_row_3').checked ? false : true);"  bgcolor="#E5E5E5">Yes&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_3').checked = (document.getElementById('checkbox_row_3').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap"><i>NULL</i>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_3').checked = (document.getElementById('checkbox_row_3').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;</td>
+        <td align="center" bgcolor="#E5E5E5">
+        <a href="tbl_alter.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;field=imagen">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_edit.png" alt="Change" title="Change" border="0" /></a>
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+%60imagen%60&amp;cpurge=1&amp;purgekey=imagen&amp;zero_rows=Field+imagen+has+been+dropped"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP `imagen`')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_drop.png" alt="Drop" title="Drop" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+PRIMARY+KEY%2C+ADD+PRIMARY+KEY%28%60imagen%60%29&amp;zero_rows=A+primary+key+has+been+added+on+imagen"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP PRIMARY KEY, ADD PRIMARY KEY(`imagen`)')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_primary.png" alt="Primary" title="Primary" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+INDEX%28%60imagen%60%29&amp;zero_rows=An+index+has+been+added+on+imagen">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_index.png" alt="Index" title="Index" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+UNIQUE%28%60imagen%60%29&amp;zero_rows=An+index+has+been+added+on+imagen">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_unique.png" alt="Unique" title="Unique" border="0" /></a>
+            
+    </td>
+    
+    <td align="center" bgcolor="#E5E5E5" nowrap="nowrap">
+        <img hspace="2" width="16" height="16" src="./themes/original/img/bd_ftext.png" alt="Fulltext" title="Fulltext" border="0" />
+    </td>
+        
+</tr>
+    
+<tr  onmouseover="setPointer(this, 4, 'over', '#D5D5D5', '#CCFFCC', '#FFCC99');" onmouseout="setPointer(this, 4, 'out', '#D5D5D5', '#CCFFCC', '#FFCC99');" onmousedown="setPointer(this, 4, 'click', '#D5D5D5', '#CCFFCC', '#FFCC99');">
+        <td align="center" bgcolor="#D5D5D5">
+        <input type="checkbox" name="selected_fld[]" value="domicilio" id="checkbox_row_4"  />
+    </td>
+            <td  onmousedown="document.getElementById('checkbox_row_4').checked = (document.getElementById('checkbox_row_4').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">&nbsp;<label onclick="return (document.getElementById('checkbox_row_4') ? false : true)" for="checkbox_row_4">domicilio</label>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_4').checked = (document.getElementById('checkbox_row_4').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">char(100)<bdo dir="ltr"></bdo></td>
+    <td  onmousedown="document.getElementById('checkbox_row_4').checked = (document.getElementById('checkbox_row_4').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_4').checked = (document.getElementById('checkbox_row_4').checked ? false : true);"  bgcolor="#D5D5D5">Yes&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_4').checked = (document.getElementById('checkbox_row_4').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap"><i>NULL</i>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_4').checked = (document.getElementById('checkbox_row_4').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">&nbsp;</td>
+        <td align="center" bgcolor="#D5D5D5">
+        <a href="tbl_alter.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;field=domicilio">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_edit.png" alt="Change" title="Change" border="0" /></a>
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+%60domicilio%60&amp;cpurge=1&amp;purgekey=domicilio&amp;zero_rows=Field+domicilio+has+been+dropped"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP `domicilio`')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_drop.png" alt="Drop" title="Drop" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+PRIMARY+KEY%2C+ADD+PRIMARY+KEY%28%60domicilio%60%29&amp;zero_rows=A+primary+key+has+been+added+on+domicilio"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP PRIMARY KEY, ADD PRIMARY KEY(`domicilio`)')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_primary.png" alt="Primary" title="Primary" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+INDEX%28%60domicilio%60%29&amp;zero_rows=An+index+has+been+added+on+domicilio">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_index.png" alt="Index" title="Index" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+UNIQUE%28%60domicilio%60%29&amp;zero_rows=An+index+has+been+added+on+domicilio">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_unique.png" alt="Unique" title="Unique" border="0" /></a>
+            
+    </td>
+    
+    <td align="center" bgcolor="#D5D5D5" nowrap="nowrap">
+        <img hspace="2" width="16" height="16" src="./themes/original/img/bd_ftext.png" alt="Fulltext" title="Fulltext" border="0" />
+    </td>
+        
+</tr>
+    
+<tr  onmouseover="setPointer(this, 5, 'over', '#E5E5E5', '#CCFFCC', '#FFCC99');" onmouseout="setPointer(this, 5, 'out', '#E5E5E5', '#CCFFCC', '#FFCC99');" onmousedown="setPointer(this, 5, 'click', '#E5E5E5', '#CCFFCC', '#FFCC99');">
+        <td align="center" bgcolor="#E5E5E5">
+        <input type="checkbox" name="selected_fld[]" value="telefono" id="checkbox_row_5"  />
+    </td>
+            <td  onmousedown="document.getElementById('checkbox_row_5').checked = (document.getElementById('checkbox_row_5').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;<label onclick="return (document.getElementById('checkbox_row_5') ? false : true)" for="checkbox_row_5">telefono</label>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_5').checked = (document.getElementById('checkbox_row_5').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">char(60)<bdo dir="ltr"></bdo></td>
+    <td  onmousedown="document.getElementById('checkbox_row_5').checked = (document.getElementById('checkbox_row_5').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_5').checked = (document.getElementById('checkbox_row_5').checked ? false : true);"  bgcolor="#E5E5E5">Yes&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_5').checked = (document.getElementById('checkbox_row_5').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap"><i>NULL</i>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_5').checked = (document.getElementById('checkbox_row_5').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;</td>
+        <td align="center" bgcolor="#E5E5E5">
+        <a href="tbl_alter.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;field=telefono">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_edit.png" alt="Change" title="Change" border="0" /></a>
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+%60telefono%60&amp;cpurge=1&amp;purgekey=telefono&amp;zero_rows=Field+telefono+has+been+dropped"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP `telefono`')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_drop.png" alt="Drop" title="Drop" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+PRIMARY+KEY%2C+ADD+PRIMARY+KEY%28%60telefono%60%29&amp;zero_rows=A+primary+key+has+been+added+on+telefono"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP PRIMARY KEY, ADD PRIMARY KEY(`telefono`)')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_primary.png" alt="Primary" title="Primary" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+INDEX%28%60telefono%60%29&amp;zero_rows=An+index+has+been+added+on+telefono">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_index.png" alt="Index" title="Index" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+UNIQUE%28%60telefono%60%29&amp;zero_rows=An+index+has+been+added+on+telefono">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_unique.png" alt="Unique" title="Unique" border="0" /></a>
+            
+    </td>
+    
+    <td align="center" bgcolor="#E5E5E5" nowrap="nowrap">
+        <img hspace="2" width="16" height="16" src="./themes/original/img/bd_ftext.png" alt="Fulltext" title="Fulltext" border="0" />
+    </td>
+        
+</tr>
+    
+<tr  onmouseover="setPointer(this, 6, 'over', '#D5D5D5', '#CCFFCC', '#FFCC99');" onmouseout="setPointer(this, 6, 'out', '#D5D5D5', '#CCFFCC', '#FFCC99');" onmousedown="setPointer(this, 6, 'click', '#D5D5D5', '#CCFFCC', '#FFCC99');">
+        <td align="center" bgcolor="#D5D5D5">
+        <input type="checkbox" name="selected_fld[]" value="URLpagina" id="checkbox_row_6"  />
+    </td>
+            <td  onmousedown="document.getElementById('checkbox_row_6').checked = (document.getElementById('checkbox_row_6').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">&nbsp;<label onclick="return (document.getElementById('checkbox_row_6') ? false : true)" for="checkbox_row_6">URLpagina</label>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_6').checked = (document.getElementById('checkbox_row_6').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">char(60)<bdo dir="ltr"></bdo></td>
+    <td  onmousedown="document.getElementById('checkbox_row_6').checked = (document.getElementById('checkbox_row_6').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_6').checked = (document.getElementById('checkbox_row_6').checked ? false : true);"  bgcolor="#D5D5D5">Yes&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_6').checked = (document.getElementById('checkbox_row_6').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap"><i>NULL</i>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_6').checked = (document.getElementById('checkbox_row_6').checked ? false : true);"  bgcolor="#D5D5D5" nowrap="nowrap">&nbsp;</td>
+        <td align="center" bgcolor="#D5D5D5">
+        <a href="tbl_alter.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;field=URLpagina">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_edit.png" alt="Change" title="Change" border="0" /></a>
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+%60URLpagina%60&amp;cpurge=1&amp;purgekey=URLpagina&amp;zero_rows=Field+URLpagina+has+been+dropped"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP `URLpagina`')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_drop.png" alt="Drop" title="Drop" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+PRIMARY+KEY%2C+ADD+PRIMARY+KEY%28%60URLpagina%60%29&amp;zero_rows=A+primary+key+has+been+added+on+URLpagina"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP PRIMARY KEY, ADD PRIMARY KEY(`URLpagina`)')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_primary.png" alt="Primary" title="Primary" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+INDEX%28%60URLpagina%60%29&amp;zero_rows=An+index+has+been+added+on+URLpagina">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_index.png" alt="Index" title="Index" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#D5D5D5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+UNIQUE%28%60URLpagina%60%29&amp;zero_rows=An+index+has+been+added+on+URLpagina">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_unique.png" alt="Unique" title="Unique" border="0" /></a>
+            
+    </td>
+    
+    <td align="center" bgcolor="#D5D5D5" nowrap="nowrap">
+        <img hspace="2" width="16" height="16" src="./themes/original/img/bd_ftext.png" alt="Fulltext" title="Fulltext" border="0" />
+    </td>
+        
+</tr>
+    
+<tr  onmouseover="setPointer(this, 7, 'over', '#E5E5E5', '#CCFFCC', '#FFCC99');" onmouseout="setPointer(this, 7, 'out', '#E5E5E5', '#CCFFCC', '#FFCC99');" onmousedown="setPointer(this, 7, 'click', '#E5E5E5', '#CCFFCC', '#FFCC99');">
+        <td align="center" bgcolor="#E5E5E5">
+        <input type="checkbox" name="selected_fld[]" value="tarifas" id="checkbox_row_7"  />
+    </td>
+            <td  onmousedown="document.getElementById('checkbox_row_7').checked = (document.getElementById('checkbox_row_7').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;<label onclick="return (document.getElementById('checkbox_row_7') ? false : true)" for="checkbox_row_7">tarifas</label>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_7').checked = (document.getElementById('checkbox_row_7').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">char(60)<bdo dir="ltr"></bdo></td>
+    <td  onmousedown="document.getElementById('checkbox_row_7').checked = (document.getElementById('checkbox_row_7').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_7').checked = (document.getElementById('checkbox_row_7').checked ? false : true);"  bgcolor="#E5E5E5">Yes&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_7').checked = (document.getElementById('checkbox_row_7').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap"><i>NULL</i>&nbsp;</td>
+    <td  onmousedown="document.getElementById('checkbox_row_7').checked = (document.getElementById('checkbox_row_7').checked ? false : true);"  bgcolor="#E5E5E5" nowrap="nowrap">&nbsp;</td>
+        <td align="center" bgcolor="#E5E5E5">
+        <a href="tbl_alter.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;field=tarifas">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_edit.png" alt="Change" title="Change" border="0" /></a>
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+%60tarifas%60&amp;cpurge=1&amp;purgekey=tarifas&amp;zero_rows=Field+tarifas+has+been+dropped"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP `tarifas`')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_drop.png" alt="Drop" title="Drop" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+PRIMARY+KEY%2C+ADD+PRIMARY+KEY%28%60tarifas%60%29&amp;zero_rows=A+primary+key+has+been+added+on+tarifas"
+            onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP PRIMARY KEY, ADD PRIMARY KEY(`tarifas`)')">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_primary.png" alt="Primary" title="Primary" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+INDEX%28%60tarifas%60%29&amp;zero_rows=An+index+has+been+added+on+tarifas">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_index.png" alt="Index" title="Index" border="0" /></a>
+            
+    </td>
+    <td align="center" bgcolor="#E5E5E5">
+        
+        <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+ADD+UNIQUE%28%60tarifas%60%29&amp;zero_rows=An+index+has+been+added+on+tarifas">
+            <img hspace="2" width="16" height="16" src="./themes/original/img/b_unique.png" alt="Unique" title="Unique" border="0" /></a>
+            
+    </td>
+    
+    <td align="center" bgcolor="#E5E5E5" nowrap="nowrap">
+        <img hspace="2" width="16" height="16" src="./themes/original/img/bd_ftext.png" alt="Fulltext" title="Fulltext" border="0" />
+    </td>
+        
+</tr>
+    
+
+<tr>
+    <td colspan="13">
+        <table>
+            <tr>
+                <td>
+                    <img src="./themes/original/img/arrow_ltr.png" border="0" width="38" height="22" alt="With selected:" />
+        <a href="tbl_properties_structure.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;checkall=1" onclick="setCheckboxes('fieldsForm', true); return false;">
+            Check All</a>
+        &nbsp;/&nbsp;
+        <a href="tbl_properties_structure.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines" onclick="setCheckboxes('fieldsForm', false); return false;">
+            Uncheck All</a>
+        &nbsp;&nbsp;&nbsp;
+        <i>With selected:</i>&nbsp;&nbsp;
+                </td>
+                <td>
+                    <button class="mult_submit" type="submit" name="submit_mult" value="Change" title="Change">
+<img src="./themes/original/img/b_edit.png" title="Change" alt="Change" width="16" height="16" />
+</button>
+<button class="mult_submit" type="submit" name="submit_mult" value="Drop" title="Drop">
+<img src="./themes/original/img/b_drop.png" title="Drop" alt="Drop" width="16" height="16" />
+</button>
+<button class="mult_submit" type="submit" name="submit_mult" value="Primary" title="Primary">
+<img src="./themes/original/img/b_primary.png" title="Primary" alt="Primary" width="16" height="16" />
+</button>
+<button class="mult_submit" type="submit" name="submit_mult" value="Index" title="Index">
+<img src="./themes/original/img/b_index.png" title="Index" alt="Index" width="16" height="16" />
+</button>
+<button class="mult_submit" type="submit" name="submit_mult" value="Unique" title="Unique">
+<img src="./themes/original/img/b_unique.png" title="Unique" alt="Unique" width="16" height="16" />
+</button>
+<button class="mult_submit" type="submit" name="submit_mult" value="Fulltext" title="Fulltext">
+<img src="./themes/original/img/b_ftext.png" title="Fulltext" alt="Fulltext" width="16" height="16" />
+</button>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+    </table>
+</form>
+
+<hr />
+
+
+<!-- TABLE WORK -->
+<!-- Printable view of the table -->
+<a href="tbl_printview.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php"><img src="./themes/original/img/b_print.png" border="0" hspace="2" align="middle" width="16" height="16" alt="Print view"/>Print view</a>&nbsp;&nbsp;&nbsp;
+
+    <!-- Work on Relations -->
+<a href="tbl_relation.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php"><img src="./themes/original/img/b_relations.png" border="0" hspace="2" align="middle" width="16" height="16" alt="Relation view"/>Relation view</a>&nbsp;&nbsp;&nbsp;
+        <!-- Let MySQL propose the optimal structure -->
+<a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;session_max_rows=all&amp;sql_query=SELECT+%2A+FROM+%60cines%60+PROCEDURE+ANALYSE%28%29"><img src="./themes/original/img/b_tblanalyse.png" border="0" hspace="2" align="middle" width="16" height="16" alt="Propose table structure" />Propose table structure</a><a href="http://dev.mysql.com/doc/mysql/en/procedure_analyse.html" target="mysql_doc"><img src="./themes/original/img/b_help.png" width="11" height="11" border="0" alt="Documentation" title="Documentation" hspace="2" align="middle" /></a>
+<br />
+<!-- Add some new fields -->
+<form method="post" action="tbl_addfield.php"
+    onsubmit="return checkFormElementInRange(this, 'num_fields', 1)">
+    <input type="hidden" name="lang" value="en-iso-8859-1" />
+<input type="hidden" name="server" value="1" />
+<input type="hidden" name="db" value="phpmyadmin" />
+<input type="hidden" name="table" value="cines" />
+<img src="./themes/original/img/b_insrow.png" width="16" height="16" border="0" hspace="2" align="middle" alt="Add new field"/>Add <input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" /> field(s)    <input type="radio" name="field_where" id="radio_field_where_last" value="last" checked="checked" /><label for="radio_field_where_last">At End of Table</label>
+    <input type="radio" name="field_where" id="radio_field_where_first" value="first" /><label for="radio_field_where_first">At Beginning of Table</label>
+    <input type="radio" name="field_where" id="radio_field_where_after" value="after" /><label for="radio_field_where_after">After </label><select name="after_field" style="vertical-align: middle" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true"><option value="id_cine">id_cine</option>
+<option value="nombre">nombre</option>
+<option value="imagen">imagen</option>
+<option value="domicilio">domicilio</option>
+<option value="telefono">telefono</option>
+<option value="URLpagina">URLpagina</option>
+<option value="tarifas">tarifas</option>
+</select>
+    <input type="submit" value="Go" style="vertical-align: middle" />
+</form>
+
+<hr />
+
+    
+
+<!-- Indexes, space usage and row statistics -->
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <td valign="top">
+        <!-- Indexes form -->
+    <form action="./tbl_indexes.php" method="post">
+    <table border="0" cellpadding="2" cellspacing="1">
+    <tr><td class="tblHeaders" colspan="7">
+        <input type="hidden" name="lang" value="en-iso-8859-1" />
+<input type="hidden" name="server" value="1" />
+<input type="hidden" name="db" value="phpmyadmin" />
+<input type="hidden" name="table" value="cines" />
+    
+        Indexes:
+        <a href="http://dev.mysql.com/doc/mysql/en/Optimising_Database_Structure.html" target="mysql_doc"><img src="./themes/original/img/b_help.png" width="11" height="11" border="0" alt="Documentation" title="Documentation" hspace="2" align="middle" /></a>
+</td></tr>        <!--table border="0" cellpadding="2" cellspacing="1"-->
+        <tr>
+            <th>Keyname</th>
+            <th>Type</th>
+            <th>Cardinality</th>
+            <th colspan="2">Action</th>
+            <th colspan="2">Field</th>
+        </tr>
+                <tr>
+            <td bgcolor="#D5D5D5" rowspan="1">
+                PRIMARY
+            </td>
+            <td bgcolor="#D5D5D5" rowspan="1">
+                PRIMARY
+            </td>
+            <td bgcolor="#D5D5D5" rowspan="1" align="right">
+                1&nbsp;
+            </td>
+            <td bgcolor="#D5D5D5" rowspan="1">
+                <a href="tbl_indexes.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;index=PRIMARY"><img src="./themes/original/img/b_edit.png" width="16" height="16" hspace="2" border="0" title="Edit" alt="Edit" /></a>
+            </td>
+            <td bgcolor="#D5D5D5" rowspan="1">
+                <a href="sql.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php&amp;sql_query=ALTER+TABLE+%60cines%60+DROP+PRIMARY+KEY&amp;zero_rows=The+primary+key+has+been+dropped" onclick="return confirmLink(this, 'ALTER TABLE `cines` DROP PRIMARY KEY')"><img src="./themes/original/img/b_drop.png" width="16" height="16" hspace="2" border="0" title="Drop" alt="Drop" /></a>
+            </td>
+            <td bgcolor="#D5D5D5" colspan="2">
+                id_cine
+            </td>
+        </tr>
+<tr><td colspan="7" class="tblFooters" nowrap="nowrap" align="center">        Create an index on&nbsp;<input type="text" size="2" name="idx_num_fields" value="1" style="vertical-align: middle;" />&nbsp;columns
+        &nbsp;<input type="submit" name="create_index" value="Go" onclick="return checkFormElementInRange(this.form, 'idx_num_fields', 1)" style="vertical-align: middle;" />
+</td></tr>    </table></form>
+
+    </td>
+
+    
+    <!-- Space usage -->
+    <td width="20">&nbsp;</td>
+    <td valign="top">
+        <a name="showusage"></a>
+        <table border="0" cellpadding="2" cellspacing="1">
+        <tr><td class="tblHeaders" colspan="3">Space usage:&nbsp;
+</td></tr>
+        <tr>
+            <th>Type</th>
+            <th colspan="2" align="center">Usage</th>
+        </tr>
+        <tr>
+            <td bgcolor="#D5D5D5" style="padding-right: 10px">Data</td>
+            <td bgcolor="#D5D5D5" align="right" nowrap="nowrap">435</td>
+            <td bgcolor="#D5D5D5">Bytes</td>
+        </tr>
+            
+        <tr>
+            <td bgcolor="#D5D5D5" style="padding-right: 10px">Index</td>
+            <td bgcolor="#D5D5D5" align="right" nowrap="nowrap">2,048</td>
+            <td bgcolor="#D5D5D5">Bytes</td>
+        </tr>
+                
+        <tr>
+            <td bgcolor="#E5E5E5" style="padding-right: 10px">Total</td>
+            <td bgcolor="#E5E5E5" align="right" nowrap="nowrap">2,483</td>
+            <td bgcolor="#E5E5E5">Bytes</td>
+        </tr>
+                
+        </table>
+    </td>
+
+    <!-- Rows Statistic -->
+    <td width="20">&nbsp;</td>
+    <td valign="top">
+        <table border="0" cellpadding="2" cellspacing="1">
+        <tr><td class="tblHeaders" colspan="2">Row Statistic:&nbsp;
+</td></tr>
+        <tr>
+            <th>Statements</th>
+            <th align="center">Value</th>
+        </tr>
+            
+        <tr>
+            <td bgcolor="#D5D5D5">Format</td>
+            <td bgcolor="#D5D5D5" align="left" nowrap="nowrap">
+                                fixed
+            </td>
+        </tr>
+                
+        <tr>
+            <td bgcolor="#E5E5E5">Rows</td>
+            <td bgcolor="#E5E5E5" align="right" nowrap="nowrap">
+                1
+            </td>
+        </tr>
+                
+        <tr>
+            <td bgcolor="#D5D5D5">Row length&nbsp;&oslash;</td>
+            <td bgcolor="#D5D5D5" align="right" nowrap="nowrap">
+                435
+            </td>
+        </tr>
+                
+        <tr>
+            <td bgcolor="#E5E5E5"> Row size &nbsp;&oslash;</td>
+            <td bgcolor="#E5E5E5" align="right" nowrap="nowrap">
+                2,483 Bytes
+            </td>
+        </tr>
+                
+        <tr>
+            <td bgcolor="#D5D5D5">Next&nbsp;Autoindex</td>
+            <td bgcolor="#D5D5D5" align="right" nowrap="nowrap">
+                2
+            </td>
+        </tr>
+                
+
+        <tr>
+            <td bgcolor="#E5E5E5">Creation</td>
+            <td style="font-size:x-small" align="right" bgcolor="#E5E5E5" nowrap="nowrap">
+                Feb 06, 2005 at 06:01 AM
+            </td>
+        </tr>
+                
+
+        <tr>
+            <td bgcolor="#D5D5D5">Last update</td>
+            <td style="font-size:x-small" align="right" bgcolor="#D5D5D5" nowrap="nowrap">
+                Feb 06, 2005 at 06:53 AM
+            </td>
+        </tr>
+                
+
+        </table>
+    </td>
+            
+</tr>
+</table>
+<hr />
+            <form method="post" action="read_dump.php" enctype="multipart/form-data" onsubmit="return checkSqlQuery(this)" name="sqlform">
+            <table border="0" cellpadding="2" cellspacing="0">
+    <!-- Query box and bookmark support -->
+            <tr class="tblHeaders">
+                <td nowrap="nowrap">
+                    <a name="querybox"></a>
+                    Run SQL query/queries on database phpmyadmin<a href="http://dev.mysql.com/doc/mysql/en/SELECT.html" target="mysql_doc"><img src="./themes/original/img/b_help.png" width="11" height="11" border="0" alt="Documentation" title="Documentation" hspace="2" align="middle" /></a>                </td>
+                                <td nowrap="nowrap">&nbsp;&nbsp;&nbsp;</td>
+                <td nowrap="nowrap">Fields:&nbsp;</td>
+                            </tr>
+            <tr bgcolor="#E5E5E5">
+                <td valign="top">
+                    <textarea name="sql_query" rows="7" cols="80" dir="ltr"
+             onfocus="if (typeof(document.layers) == 'undefined' || typeof(textarea_selected) == 'undefined') {textarea_selected = 1; document.sqlform.elements['sql_query'].select();}" >SELECT * FROM `cines` WHERE 1</textarea>
+                </td>
+                <td valign="middle">
+                    <input type="button" name="insert" value="&lt;&lt;" onclick="insertValueQuery()" title="Insert" />                </td>
+                <td valign="top">
+                    <select name="dummy" size="7" multiple="multiple" class="textfield">
+
+                        <option value="`id_cine`">id_cine</option>
+                        <option value="`nombre`">nombre</option>
+                        <option value="`imagen`">imagen</option>
+                        <option value="`domicilio`">domicilio</option>
+                        <option value="`telefono`">telefono</option>
+                        <option value="`URLpagina`">URLpagina</option>
+                        <option value="`tarifas`">tarifas</option>
+                    </select>
+                </td>
+            </tr>
+            <tr bgcolor="#E5E5E5">
+                <td colspan="2">
+                    <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" /><label for="checkbox_show_query"> Show this query here again </label>
+                </td>
+                <td align="right" valign="bottom"><input type="submit" name="SQL" value="Go" /></td>
+            </tr>
+            <tr>
+                <td colspan="3"><img src="./themes/original/img/spacer.png" width="1" height="1" border="0" alt="" /></td>
+            </tr>
+            <tr>
+                <td class="tblHeaders" colspan="3">
+            <i>Or</i> Location of the textfile:&nbsp;
+                </td>
+            </tr>
+            <tr bgcolor="#D5D5D5">
+                <td colspan="3">
+                    <b>&nbsp;Location of the textfile:&nbsp;</b>
+                </td>
+            </tr>
+            <tr bgcolor="#E5E5E5">
+                <td colspan="3">
+                    &nbsp;&nbsp;<input type="file" name="sql_file" class="textfield" />&nbsp;(Max: 2,048KB)<br />
+        <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
+                </td>
+            </tr>
+            <tr bgcolor="#E5E5E5">
+                <td colspan="3">
+                    &nbsp;&nbsp;Compression:<br />&nbsp;&nbsp;
+                    &nbsp;&nbsp;<input type="radio" id="radio_sql_file_compression_auto" name="sql_file_compression" value="" checked="checked" /><label for="radio_sql_file_compression_auto">Autodetect</label>&nbsp;&nbsp;
+                    <input type="radio" id="radio_sql_file_compression_plain" name="sql_file_compression" value="text/plain" /><label for="radio_sql_file_compression_plain">None</label>&nbsp;&nbsp;
+                    <input type="radio" id="radio_sql_file_compression_gzip" name="sql_file_compression" value="application/x-gzip" /><label for="radio_sql_file_compression_gzip">"gzipped"</label>&nbsp;&nbsp;
+                    <input type="radio" id="radio_sql_file_compression_bzip" name="sql_file_compression" value="application/x-bzip" /><label for="radio_sql_file_compression_bzip">"bzipped"</label>&nbsp;&nbsp;
+                </td>
+            </tr>
+    
+
+    <tr bgcolor="#D5D5D5">
+        <td align="right" colspan="3"><input type="submit" name="SQL" value="Go" /></td>
+    </tr>
+
+                <tr><td colspan="3" height="1">
+                    <input type="hidden" name="is_js_confirmed" value="0" />
+                    <input type="hidden" name="lang" value="en-iso-8859-1" />
+<input type="hidden" name="server" value="1" />
+<input type="hidden" name="db" value="phpmyadmin" />
+<input type="hidden" name="table" value="cines" />
+
+                    <input type="hidden" name="pos" value="0" />
+                    <input type="hidden" name="goto" value="tbl_properties_structure.php" />
+                    <input type="hidden" name="zero_rows" value="Your SQL-query has been executed successfully" />
+                    <input type="hidden" name="prev_sql_query" value="" />
+                </td></tr>            </table>
+        </form>
+
+        <!-- Insert a text file -->
+            
+            <script type="text/javascript">
+                <!--
+                document.writeln('<a href="ldi_table.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php" ><img src=\"./themes/original/img/b_tblimport.png\" width=\"16\" height=\"16\" hspace=\"2\" border=\"0\" align=\"middle\" alt=\"Insert data from a textfile into table\" />Insert data from a textfile into table</a>');
+                //-->
+            </script>
+
+            
+            <noscript>
+               <a href="ldi_table.php?lang=en-iso-8859-1&amp;server=1&amp;db=phpmyadmin&amp;table=cines&amp;goto=tbl_properties_structure.php&amp;back=tbl_properties_structure.php"><img src="./themes/original/img/b_tblimport.png" width="16" height="16" hspace="2" border="0" align="middle" alt="Insert data from a textfile into table" />Insert data from a textfile into table</a>
+            </noscript>
+        
+
+<script type="text/javascript">
+<!--
+    var dbBoxSetupDone = false;
+    function dbBoxSetup() {
+        if (dbBoxSetupDone != true) {
+            if (parent.frames.queryframe && parent.frames.queryframe.document.left && parent.frames.queryframe.document.left.lightm_db) {
+                parent.frames.queryframe.document.left.lightm_db.value = 'phpmyadmin';
+                dbBoxSetupDone = true;
+            } else {
+                setTimeout("dbBoxSetup();",500);
+            }
+        }
+    }
+    if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.queryframeform) {
+        parent.frames.queryframe.document.queryframeform.db.value = "phpmyadmin";
+        parent.frames.queryframe.document.queryframeform.table.value = "cines";
+    }
+    if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.left && parent.frames.queryframe.document.left.lightm_db) {
+        selidx = parent.frames.queryframe.document.left.lightm_db.selectedIndex;
+        if (parent.frames.queryframe.document.left.lightm_db.options[selidx].value == "phpmyadmin") {
+            parent.frames.queryframe.document.left.lightm_db.options[selidx].text = "phpmyadmin (3)";
+        } else {
+            parent.frames.queryframe.location.reload();
+            setTimeout("dbBoxSetup();",2000);
+        }
+    }
+    
+    function reload_querywindow () {
+        if (parent.frames.queryframe && parent.frames.queryframe.querywindow && !parent.frames.queryframe.querywindow.closed && parent.frames.queryframe.querywindow.location) {
+                        if (!parent.frames.queryframe.querywindow.document.sqlform.LockFromUpdate || !parent.frames.queryframe.querywindow.document.sqlform.LockFromUpdate.checked) {
+                parent.frames.queryframe.querywindow.document.querywindow.db.value = "phpmyadmin";
+                parent.frames.queryframe.querywindow.document.querywindow.query_history_latest_db.value = "phpmyadmin";
+                parent.frames.queryframe.querywindow.document.querywindow.table.value = "cines";
+                parent.frames.queryframe.querywindow.document.querywindow.query_history_latest_table.value = "cines";
+
+                // no sql query update
+
+                parent.frames.queryframe.querywindow.document.querywindow.submit();
+            }
+                    }
+    }
+
+    function focus_querywindow(sql_query) {
+        if (parent.frames.queryframe && parent.frames.queryframe.querywindow && !parent.frames.queryframe.querywindow.closed && parent.frames.queryframe.querywindow.location) {
+            if (parent.frames.queryframe.querywindow.document.querywindow.querydisplay_tab != 'sql') {
+                parent.frames.queryframe.querywindow.document.querywindow.querydisplay_tab.value = "sql";
+                parent.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = sql_query;
+                parent.frames.queryframe.querywindow.document.querywindow.submit();
+                parent.frames.queryframe.querywindow.focus();
+            } else {
+                parent.frames.queryframe.querywindow.focus();
+            }
+
+            return false;
+        } else if (parent.frames.queryframe) {
+            new_win_url = 'querywindow.php?sql_query=' + sql_query + '&lang=en-iso-8859-1&server=1&db=phpmyadmin&table=cines';
+            parent.frames.queryframe.querywindow=window.open(new_win_url, '','toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=yes,resizable=yes,width=550,height=310');
+
+            if (!parent.frames.queryframe.querywindow.opener) {
+               parent.frames.queryframe.querywindow.opener = parent.frames.queryframe;
+            }
+
+            // reload_querywindow();
+            return false;
+        }
+    }
+
+    reload_querywindow();
+
+//-->
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,321 @@
+FIS121
+Fisica Geral e Experimental I-E
+090
+04
+CM
+-
+
+ELT603
+Eletiva
+060
+03
+EL
+-
+
+MAT018
+Algebra Linear II
+060
+03
+CM
+MAT017
+
+MAT002
+Matematica Basica II
+090
+05
+CM
+-
+
+FIS122
+Fisica Geral e Experimental II-E
+090
+04
+CM
+FIS121
+
+MAT043
+Calculo III-A
+090
+04
+CM
+MAT042
+
+MAT146
+Introducao a Logica de Programacao
+060
+03
+CM
+-
+
+MAT017
+Algebra Linear I
+060
+03
+CM
+MAT002
+
+MAT051
+Projeto de Circuitos Logicos
+060
+03
+CM
+FIS122 -  MAT146 -  MAT150
+
+MAT150
+Introducao ao Sitema de Computacao
+060
+03
+CM
+-
+
+MAT042
+Calculo II-A
+090
+04
+CM
+MAT002 -  MAT195
+
+MAT144
+Algebra I-A
+090
+04
+CM
+-
+
+MAT195
+Calculo Diferencial Integral I-A
+090
+05
+CM
+-
+
+MAT112
+Estruturas de Dados
+090
+05
+CM
+MAT146
+
+MAT147
+Linguagem de Programacao I
+090
+04
+CM
+MAT112
+
+MAT046
+Estatistica III-D
+090
+05
+CM
+MAT043
+
+MAT053
+Analise e Projetos de Algoritmos
+060
+03
+CM
+MAT112 -  MAT158
+
+ELT603
+Eletiva
+060
+03
+EL
+-
+
+MAT052
+Estudo Comparativo de Linguagens de Programacao
+060
+03
+CM
+MAT147
+
+MAT149
+Linguagem de Montagem
+060
+03
+CM
+MAT147 -  MAT151
+
+MAT152
+Estruturas de Arquivos
+060
+03
+CM
+MAT053 -  MAT161
+
+MAT056
+Computacao Grafica
+060
+03
+CM
+MAT018 -  MAT043 -  MAT147
+
+MAT155
+Programacao Matematica
+060
+04
+CM
+MAT018 -  MAT046
+
+MAT153
+Construcao de Compiladores
+060
+03
+CM
+MAT052 -  MAT149 -  MAT157
+
+MAT151
+Arquitetura de Computadores
+060
+03
+CM
+MAT051
+
+MAT157
+Linguagens Formais e Teoria da Compilacao
+060
+04
+CM
+MAT158
+
+MAT156
+Teoria dos Grafos
+060
+04
+CO
+MAT052 -  MAT144
+
+MAT158
+Teoria da Computacao
+060
+03
+CM
+MAT144
+
+MAT161
+Engenharia de Software
+060
+03
+CM
+MAT052
+
+MAT159
+Computador e Sociedade
+045
+03
+CM
+MAT161
+
+MAT174
+Calculo Numerico
+075
+04
+CM
+MAT018 -  MAT043 -  MAT147
+
+OPT603
+Optativa
+060
+03
+OP
+-
+
+MAT162
+Analise e Projeto de Sistemas de Informacao I
+060
+03
+CM
+MAT161
+
+MAT164
+Teleprocessamento
+090
+05
+CM
+MAT151
+
+MAT054
+Inteligencia Artificial
+060
+03
+CO
+MAT156
+
+MAT057
+Projeto Final
+090
+04
+CM
+MAT152 -  MAT163 -  MAT165
+
+MAT055
+Redes de Computadores
+060
+03
+CO
+MAT164
+
+OPT603
+Optativas
+060
+03
+OP
+-
+
+MAT154
+Sistemas Operacionais
+060
+03
+CM
+MAT152 -  MAT153
+
+OPT603
+Optativa
+060
+03
+OP
+-
+
+MAT160
+Modelos Probabilisticos de Pesquisa Operacional
+090
+04
+CO
+MAT155
+
+OPT603
+Optativa
+060
+03
+OP
+-
+
+MAT163
+Analise e Projeto de Sistemas de Informacao II
+060
+03
+CM
+MAT162
+
+OPT603
+Optativa
+060
+03
+OP
+-
+
+MAT165
+Banco de Dados
+090
+04
+CM
+MAT152 -  MAT162
+
+OPT603
+Optativa
+060
+03
+OP
+-

@@ -1,0 +1,100 @@
+body {
+	font-family: arial;
+}
+
+h2 {
+	text-decoration: underline;
+}
+
+.arvore {
+	border-style: none none none dashed;
+	border-width: 0px 0px 0px 1px;
+	padding: 8px 0px 0px 15px;
+	margin: 0px 0px 0px 12px;
+}
+
+.linkfalso {
+	cursor: pointer;
+}
+
+.turmas {
+	display: none; 
+/*	float: none !important;
+	border: 1px solid red;*/
+}
+
+.alterna {
+	color: #333;
+	cursor: pointer;
+	background: white;
+}
+
+.alterna:hover {
+	color: blue;
+	text-decoration: underline;
+}
+
+.alterna2 {
+	color: green;
+	cursor: pointer;
+}
+
+.alterna2:hover {
+	color: blue;
+	text-decoration: underline;
+}
+
+table.materias td {
+	vertical-align: top;
+}
+.apelido {
+	visibility: hidden;
+}
+.impar {
+	background-color: #ddd;
+}
+.par {
+	background-color: #eee;
+}
+
+table.horario td, table.horario th {
+	border-style: solid solid solid solid;
+	border-color: black black black black;
+	border-right-width: 1px;
+	border-bottom-width: 1px;	
+	border-left-width: 0px;
+	border-top-width: 0px;
+}
+table.horario th {
+	border-background: #eee;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+}
+table.horario td.conflito {
+	border-color: red red red red;
+	border-width: 2px 2px 2px 2px;
+}
+table.info td {
+	padding-right: 8px;
+}
+
+/*
+table.materias td {
+	broder: 1px solid red;
+}
+*/
+
+li {
+	list-style: none;
+}
+
+.bullet
+{
+  cursor: pointer;
+}
+
+.ramo {
+	border-style: none none none dashed;
+	border-color: none none none black;
+	border-left-width: 1px;
+}

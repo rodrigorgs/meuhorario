@@ -1,0 +1,46 @@
+Como executar: abrir endereco
+http://127.0.0.1/phphorario/mostramaterias.php?curso=112
+
+Recursos desejados
+==================
+  * Arquivo config.php com constantes globais.
+  * Se sabado nao for utilizado, suprimir da tabela (o mesmo com domingo e CMB)
+  * Opcao de horario colorido (para visualizacao) ou preto-e-branco (impressao)
+  * Opcao de horario com varias turmas da mesma materia (estilo antigo TCC)
+
+Bugs
+====
+
+Feito / encaminhado
+===================
+  + Ao selecionar materia, pintar linha da tabela de outra cor
+  . Opcao de gerar horario mostrando conflitos (a partir de checkbox)
+    Cada celula da tabela pode, assim, conter mais de uma turma e, neste caso,
+	estara contornada de vermelho
+  . Detectar que horas nao sao utilizadas, para suprimir da tabela
+  . Campo 'Apelido' so deve aparecer quando a materia for selecionada
+  . Opcao de gerar horarios possiveis que contenham um subconjunto das materias
+    selecionadas.
+	Vamos supor que o aluno tem 10 materias disponiveis para pegar.
+	Provavelmente nao sera possível pegar todas, mas ele quer saber que opcoes
+	ele tem. Entao o programa geraria combinacoes com entre X e 10 materias
+	(X eh uma quantidade minima estipulada pelo usuario)
+  . Mostrar subconjuntos nao funciona quando Mostra conflito esta desativado.
+    (Exemplo: pegar seis materias, a partir de TELEPROCESSAMENTO, e mostrar
+	subconjuntos com pelo menos 5 turmas)
+  . A contagem de conflitos nao funciona bem. Acontece de dar zero quando
+    nao eh zero, e as vezes da negativo (como -108 quando deveria ser 4).
+	O numero vai diminuindo a cada tabela gerada.
+  . Opcoes de restricao: horarios indisponiveis, professores indesejaveis...
+  . Mostrar professores das turmas
+  . BUG muito serio: ao pegar uma materia com um professor carrasco, todas
+    as outras materias somem!
+  . No Firefox, quando se esta em gerahorarios.php e clica-se em "Voltar" para
+    voltar para mostramaterias.php, os campos de texto das materias
+	selecionadas desaparecem.
+  . Mostrar mensagem sugestiva quando nenhuma combinacao for possivel.
+
+  Legenda
+  -------
+  . feito
+  + encaminhado

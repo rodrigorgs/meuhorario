@@ -1,0 +1,10 @@
+#!/bin/sh
+
+pastaatual=`pwd | sed 's/.*[^/]\///g' `
+data=`date --iso-8601=minutes | tr -d '-' | tr -d ':' | tr 'T' '-' | cut -b 0-13`
+arquivo=$pastaatual-$data.tar.gz
+cd ../
+echo Compactando $pastaatual ...
+tar czf $arquivo $pastaatual/
+cd -
+echo Criado arquivo ../$arquivo
