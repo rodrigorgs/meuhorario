@@ -30,11 +30,11 @@ NUT \
 QUI \
 TEA"
 
-cd guia
+cd ../guia
 
 for i in $UNIDADES
 do
 	wget ${URL_BASE}${i}.html -O ${i}.html
 done
 
-cd ..
+cd -

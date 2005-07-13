@@ -32,6 +32,13 @@ gravaEstatistica($_REQUEST['curso']);
 			'.html">guia de matr&iacute;cula no site da SUPAC</a>.</p>'
 ?>
 
+<small>
+Selecione as mat&eacute;rias desejadas e clique no bot&atilde;o Gerar Hor&aacute;rios.
+Clicando no <tt>[+]</tt>, &eacute; poss&iacute;vel ver e selecionar turmas
+de uma mat&eacute;ria. Opcionalmente, voc&ecirc; pode impor 
+restri&ccedil;&otilde;es de hor&aacute;rio e de professor.
+</small>
+
 <tr>
 	<th></th><th>Matéria</th><th>Apelido</th>
 </tr>

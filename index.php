@@ -9,15 +9,24 @@ cabecalho("Escolha seu curso", false);
 ?>
 
 <table align="top" cellpadding="10" valign="top">
-<h1>Sobre este site</h1>
+<h1>Matr&iacute;cula 2005.2</h1>
 <p>
 Este site fornece aos alunos da UFBA (Universidade Federal da Bahia)
 novos recursos para o planejamento da matr&iacute;cula.<br/>
 Aqui, voc&ecirc; escolhe as mat&eacute;rias, imp&otilde;e
 restri&ccedil;&otilde;es e, no final, s&atilde;o mostradas
-v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
+v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.<br/>
+Todas as informações sobre as matérias foram tiradas do 
+site da <a href="http://www.supac.ufba.br/">SUPAC</a>. Alguns dados
+podem ter sido alterados pelos respectivos departamentos após a 
+disponibilização na Internet das informações.
 </p>
 
+<h2>Novos cursos dispon&iacute;veis</h2>
+Oceanografia, Zootecnia, Engenharia Florestal, Engenharia de Pesca,
+Pedagogia (Irec&ecirc;), Hist&oacute;ria - licenciaturas especiais, 
+Letras Vern&aacute;culas com L&iacute;ngua Estrangeira, 
+L&iacute;ngua estrangeira.
 
 
 <h1>Escolha seu curso</h1>
@@ -40,6 +49,7 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
 	<a href="mostramaterias.php?curso=113">QU&Iacute;MICA</a><br/>
 	<a href="mostramaterias.php?curso=116">ESTAT&Iacute;STICA</a><br/>
 	<a href="mostramaterias.php?curso=118">GEOF&Iacute;SICA</a><br/>
+	<a href="mostramaterias.php?curso=119">OCEANOGRAFIA</a><br/>
 	<a href="mostramaterias.php?curso=181">F&Iacute;SICA NOTURNO</a><br/>
 </td>
 <td class="par">
@@ -54,6 +64,9 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
 	<a href="mostramaterias.php?curso=208">ODONTOLOGIA</a><br/>
 	<a href="mostramaterias.php?curso=209">CI&Ecirc;NCIAS NATURAIS</a><br/>
 	<a href="mostramaterias.php?curso=210">FONOAUDIOLOGIA</a><br/>
+	<a href="mostramaterias.php?curso=211">ZOOTECNIA</a><br/>
+	<a href="mostramaterias.php?curso=212">ENGENHARIA FLORESTAL</a><br/>
+	<a href="mostramaterias.php?curso=213">ENGENHARIA DE PESCA</a><br/>
 </td>
 </tr>
 <tr>
@@ -68,16 +81,20 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
 	<a href="mostramaterias.php?curso=309">FILOSOFIA</a><br/>
 	<a href="mostramaterias.php?curso=310">HISTORIA</a><br/>
 	<a href="mostramaterias.php?curso=311">MUSEOLOGIA</a><br/>
-	<a href="mostramaterias.php?curso=312">PEDAGOGIA</a><br/>
+	<a href="mostramaterias.php?curso=312">PEDAGOGIA (SALVADOR)</a><br/>
 	<a href="mostramaterias.php?curso=313">PSICOLOGIA</a><br/>
 	<a href="mostramaterias.php?curso=314">SECRETARIADO</a><br/>
 	<a href="mostramaterias.php?curso=315">EDUCA&Ccedil;&Atilde;O F&Iacute;SICA</a><br/>
 	<a href="mostramaterias.php?curso=301">BACHARELADO EM ADMINISTRA&Ccedil;&Atilde;O</a><br/>
 	<a href="mostramaterias.php?curso=317">ARQUIVOLOGIA</a><br/>
+	<a href="mostramaterias.php?curso=319">PEDAGOGIA (IRECE)</a><br/>
+	<a href="mostramaterias.php?curso=320">HISTORIA - LICENCIATURAS ESPECIAIS</a><br/>
 </td>
 <td class="impar">
 	<h2>&Aacute;rea IV</h2>
 	<a href="mostramaterias.php?curso=401">LETRAS VERN&Aacute;CULAS</a><br/>
+	<a href="mostramaterias.php?curso=402">LETRAS VERN&Aacute;CULAS C/ LINGUA ESTRANGEIRA</a><br/>
+	<a href="mostramaterias.php?curso=403">LETRAS ESTRANGEIRA</a><br/>
 	<p></p>
 	
 	<h2>&Aacute;rea V</h2>
@@ -95,10 +112,19 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
 </tr>
 </table>
 
+<h2>Para desenvolvedores de <i>software</i></h2>
+Se voc&ecirc; &eacute; um desenvolvedor de <i>software</i>,
+veja a
+<a href="http://sourceforge.net/projects/tcc">p&aacute;gina do projeto</a>
+(hospedada no SourceForge), com o c&oacute;digo-fonte deste programa e
+de outros programas relacionados a matr&iacute;cula e planejamento de curso.
+
+<small>
 <p>
-(Guia de matr&iacute;cula atualizado no dia 23 de fevereiro de 2005)<br/>
+Guia de matr&iacute;cula atualizado no dia 12 de julho de 2005.<br/>
 (Novos recursos adicionados no dia 3 de mar&ccedil;o de 2005)
 </p>
+</small>
 
 <?php
 
