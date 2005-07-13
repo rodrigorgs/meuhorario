@@ -119,12 +119,27 @@ veja a
 (hospedada no SourceForge), com o c&oacute;digo-fonte deste programa e
 de outros programas relacionados a matr&iacute;cula e planejamento de curso.
 
+<h2>Novo programa de matrícula</h2>
+Para os aventureiros, estamos disponibilizando um programa de matrícula
+com interface gráfica bastante intuitiva. É o University Scheduler.
+Para executá-lo é necessário ter o
+<a href="http://java.sun.com/j2se/1.5.0/download.jsp">Java 5</a> instalado.
+O programa está em inglês. Para funcionar, o ele precisa baixar todas
+as informações de matrícula (cerca de 3MB). Acesse aqui o
+<a href="scheduler/">University Scheduler UFBA</a>. 
+Para ver telas do programa e obter mais informações, acesse o 
+<a href="http://www.universityscheduler.com/">site oficial do University
+Scheduler</a> (em inglês).
+
+
+
 <small>
 <p>
 Guia de matr&iacute;cula atualizado no dia 12 de julho de 2005.<br/>
 (Novos recursos adicionados no dia 3 de mar&ccedil;o de 2005)
 </p>
 </small>
+
 
 <?php
 
