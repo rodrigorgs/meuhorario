@@ -124,7 +124,7 @@ Para os aventureiros, estamos disponibilizando um programa de matrícula
 com interface gráfica bastante intuitiva. É o University Scheduler.
 Para executá-lo é necessário ter o
 <a href="http://java.sun.com/j2se/1.5.0/download.jsp">Java 5</a> instalado.
-O programa está em inglês. Para funcionar, o ele precisa baixar todas
+O programa está em inglês. Para funcionar, ele precisa baixar todas
 as informações de matrícula (cerca de 3MB). Acesse aqui o
 <a href="scheduler/">University Scheduler UFBA</a>. 
 Para ver telas do programa e obter mais informações, acesse o 
