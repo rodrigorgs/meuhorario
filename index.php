@@ -135,7 +135,7 @@ Scheduler</a> (em inglês).
 
 <small>
 <p>
-Guia de matr&iacute;cula atualizado no dia 12 de julho de 2005.<br/>
+Guia de matr&iacute;cula atualizado no dia 21 de julho de 2005.<br/>
 (Novos recursos adicionados no dia 3 de mar&ccedil;o de 2005)
 </p>
 </small>
