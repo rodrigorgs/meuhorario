@@ -55,13 +55,15 @@ class Tabela {
 	
 	function retiraTurma($turma) {
 		foreach ($turma->listaDeAulas as $i => $aula) {
-			for ($hora = $aula->horaini; $hora < $aula->horafim; $hora++) {
-				foreach ($this->tabela[$aula->dia][$hora] as $j => $tur) {
-					if ($tur->materia->codigo == $turma->materia->codigo &&
-							$tur->codigo == $turma->codigo) {
-						unset($this->tabela[$aula->dia][$hora][$j]);
-						if (count($this->tabela[$aula->dia][$hora]) == 1)
-							$this->conflito--;
+			if ($aula->dia != 'CMB') { // ignora CMB
+				for ($hora = $aula->horaini; $hora < $aula->horafim; $hora++) {
+					foreach ($this->tabela[$aula->dia][$hora] as $j => $tur) {
+						if ($tur->materia->codigo == $turma->materia->codigo &&
+								$tur->codigo == $turma->codigo) {
+							unset($this->tabela[$aula->dia][$hora][$j]);
+							if (count($this->tabela[$aula->dia][$hora]) == 1)
+								$this->conflito--;
+						}
 					}
 				}
 			}
