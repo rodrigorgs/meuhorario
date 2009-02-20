@@ -165,17 +165,28 @@ class Curso {
 						$materia->listaDeTurmas[] =& $turma;
 					}
 
-					// novo dia de aula
+					// novo dia de aula ////////////////////////////////////////////////// 
 					if ($matches[4]) {
 						$dia = $matches[4];
 
 						$aula =& new Aula();
 						$aula->dia = $dia;
 						$turma->listaDeAulas[] =& $aula;
+						$aula->setHorario($matches[5]);
 					}
-					
-					// sempre ha hora
-					$aula->setHorario($matches[5]);
+					else {
+						$hi = (int)substr($matches[5], 0, 2);
+						$hf = (int)substr($matches[5], 9, 2);
+						
+						if ($hi == $aula->horafim)
+							$aula->horafim = $hf;
+						else {
+                            $aula =& new Aula();
+                            $aula->dia = $dia;
+							$turma->listaDeAulas[] =& $aula;
+							$aula->setHorario($matches[5]);
+						}
+					}
 
 					// sempre ha professor
 					$aula->listaDeDocentes[] = $matches[6];
