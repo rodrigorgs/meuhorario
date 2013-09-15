@@ -55,27 +55,7 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
   <a href="mostramaterias.php?curso=197">C.S.T. de Transporte Terrestre</a><br/>
 </td>
 <td class="par">
-	<h2>&Aacute;rea II</h2>
-    <a href="mostramaterias.php?curso=203">Enfermagem</a><br/>
-    <a href="mostramaterias.php?curso=204">Farm&aacute;cia</a><br/>
-    <a href="mostramaterias.php?curso=205">Medicina</a><br/>
-    <a href="mostramaterias.php?curso=206">Medicina Veterin&aacute;ria</a><br/>
-    <a href="mostramaterias.php?curso=207">Nutri&ccedil;&atilde;o</a><br/>
-    <a href="mostramaterias.php?curso=208">Odontologia</a><br/>
-    <a href="mostramaterias.php?curso=209">Ci&ecirc;ncias Naturais</a><br/>
-    <a href="mostramaterias.php?curso=210">Fonoaudiologia</a><br/>
-    <a href="mostramaterias.php?curso=219">Zootecnia</a><br/>
-    <a href="mostramaterias.php?curso=222">Fisioterapia</a><br/>
-    <a href="mostramaterias.php?curso=280">Ci&ecirc;ncias Biol&oacute;gicas (noturno)</a><br/>
-    <a href="mostramaterias.php?curso=281">Farm&aacute;cia (noturno)</a><br/>
-    <a href="mostramaterias.php?curso=282">Gastronomia (noturno)</a><br/>
-    <a href="mostramaterias.php?curso=283">Sa&uacute;de Coletiva (noturno)</a><br/>
-    <a href="mostramaterias.php?curso=284">Biotecnologia (noturno)</a><br/>
 
-</td>
-</tr>
-<tr>
-<td class="par">
 	<h2>&Aacute;rea III</h2>
     <a href="mostramaterias.php?curso=303">Biblioteconomia e Documenta&ccedil;&atilde;o</a><br/>
     <a href="mostramaterias.php?curso=304">Ci&ecirc;ncias Cont&aacute;beis</a><br/>
@@ -98,6 +78,27 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
     <a href="mostramaterias.php?curso=382">Direito (noturno)</a><br/>
     <a href="mostramaterias.php?curso=383">G&ecirc;nero e Diversidade (noturno)</a><br/>
     <a href="mostramaterias.php?curso=384">C.S.T. de Gest&atilde;o P&uacute;blica e Gest&atilde;o Social (noturno)</a><br/>
+
+</td>
+</tr>
+<tr>
+<td class="par">
+  	<h2>&Aacute;rea II</h2>
+    <a href="mostramaterias.php?curso=203">Enfermagem</a><br/>
+    <a href="mostramaterias.php?curso=204">Farm&aacute;cia</a><br/>
+    <a href="mostramaterias.php?curso=205">Medicina</a><br/>
+    <a href="mostramaterias.php?curso=206">Medicina Veterin&aacute;ria</a><br/>
+    <a href="mostramaterias.php?curso=207">Nutri&ccedil;&atilde;o</a><br/>
+    <a href="mostramaterias.php?curso=208">Odontologia</a><br/>
+    <a href="mostramaterias.php?curso=209">Ci&ecirc;ncias Naturais</a><br/>
+    <a href="mostramaterias.php?curso=210">Fonoaudiologia</a><br/>
+    <a href="mostramaterias.php?curso=219">Zootecnia</a><br/>
+    <a href="mostramaterias.php?curso=222">Fisioterapia</a><br/>
+    <a href="mostramaterias.php?curso=280">Ci&ecirc;ncias Biol&oacute;gicas (noturno)</a><br/>
+    <a href="mostramaterias.php?curso=281">Farm&aacute;cia (noturno)</a><br/>
+    <a href="mostramaterias.php?curso=282">Gastronomia (noturno)</a><br/>
+    <a href="mostramaterias.php?curso=283">Sa&uacute;de Coletiva (noturno)</a><br/>
+    <a href="mostramaterias.php?curso=284">Biotecnologia (noturno)</a><br/>
 </td>
 <td class="impar">
 	<h2>&Aacute;rea IV</h2>
