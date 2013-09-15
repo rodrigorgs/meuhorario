@@ -140,7 +140,8 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
 </table>
 
 <p>
-(Guia de matr&iacute;cula atualizado no dia 15 de setembro de 2013)<br/>
+Guia de matr&iacute;cula atualizado no dia 15 de setembro de 2013<br/>
+Código fonte para os desenvolvedores em: <a href="https://github.com/asrail/phphorario">https://github.com/asrail/phphorario</a> <br>/
 </p>
 
 <?php
