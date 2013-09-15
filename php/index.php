@@ -1,156 +1,107 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Welcome to OpenShift</title>
-  <style>
-  html { 
-  background: black; 
-  }
-  body {
-    background: #333;
-    background: -webkit-linear-gradient(top, black, #666);
-    background: -o-linear-gradient(top, black, #666);
-    background: -moz-linear-gradient(top, black, #666);
-    background: linear-gradient(top, black, #666);
-    color: white;
-    font-family: "Helvetica Neue",Helvetica,"Liberation Sans",Arial,sans-serif;
-    width: 40em;
-    margin: 0 auto;
-    padding: 3em;
-  }
-  a {
-    color: white;
-  }
+<?php
+require_once('util.php');
 
-  h1 {
-    text-transform: capitalize;
-    -moz-text-shadow: -1px -1px 0 black;
-    -webkit-text-shadow: 2px 2px 2px black;
-    text-shadow: -1px -1px 0 black;
-    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
-    background: #CC0000;
-    width: 22.5em;
-    margin: 1em -2em;
-    padding: .3em 0 .3em 1.5em;
-    position: relative;
-  }
-  h1:before {
-    content: '';
-    width: 0;
-    height: 0;
-    border: .5em solid #91010B;
-    border-left-color: transparent;
-    border-bottom-color: transparent;
-    position: absolute;
-    bottom: -1em;
-    left: 0;
-    z-index: -1000;
-  }
-  h1:after {
-    content: '';
-    width: 0;
-    height: 0;
-    border: .5em solid #91010B;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    position: absolute;
-    bottom: -1em;
-    right: 0;
-    z-index: -1000;
-  }
-  h2 { 
-    margin: 2em 0 .5em;
-    border-bottom: 1px solid #999;
-  }
+cabecalho("Escolha seu curso", false);
 
-  pre {
-    background: black;
-    padding: 1em 0 0;
-    -webkit-border-radius: 1em;
-    -moz-border-radius: 1em;
-    border-radius: 1em;
-    color: #9cf;
-  }
+/* expressao regular (VIM):
+%s/\(\d\d\d\) \(.*\)/<a href="mostramaterias.php?curso=\1">\2<\/a><br\/>/g
+*/
+?>
 
-  ul { 
-    margin: 0; 
-    padding: 0;
-  }
-  li {
-    list-style-type: none;
-    padding: .5em 0;
-  }
+<table align="top" cellpadding="10" valign="top">
+<h1>Sobre este site</h1>
+<p>
+Este site fornece aos alunos da UFBA (Universidade Federal da Bahia)
+novos recursos para o planejamento da matr&iacute;cula.<br/>
+Aqui, voc&ecirc; escolhe as mat&eacute;rias, imp&otilde;e
+restri&ccedil;&otilde;es e, no final, s&atilde;o mostradas
+v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
+</p>
 
-  .brand {
-    display: block;
-    text-decoration: none;
-  }
-  .brand .brand-image {
-    float: left;
-    border: none;
-  }
-  .brand .brand-text {
-    float: left;
-    font-size: 24px;
-    line-height: 24px;
-    padding: 4px 0;
-    color: white;
-    text-transform: uppercase;
-  }
-  .brand:hover,
-  .brand:active {
-    text-decoration: underline;
-  }
 
-  .brand:before,
-  .brand:after {
-    content: ' ';
-    display: table;
-  }
-  .brand:after {
-    clear: both;
-  }
-  </style>
-</head>
-<body>
-  <a href="http://openshift.com" class="brand">
-    <img class="brand-image"
-      alt="OpenShift logo"
-      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAgCAYAAABU1PscAAAAAXNSR0IArs4c6QAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAARHgAAER4B27UUrQAABUhJREFUWMPFWFlsVGUU/s5/70zbaSltA7RQpJ2lC9CFkQkWIgSJxkAhRA0JCYFq4hPG6JsoGKNCtPigxqhvGlPAuGIaE4igNaElbIW2yNL2tkOtTYGWCqWF2e79fCh7p1Bmpnge/3vuOef7z/nPJiTxMHS6pMRuu6YqFNTTAJYSyAU4GZB0AH2AGCANAfc5Qrba6T3HrmECScYLwCioSIcV2AjidQDZ45Q/LJRaWrLV03X89P8GwHB5XwG4DcDkGPWEBKimNrzN094efGQAzjm9GWHFr4R4LiHKgFaSL3r8zYcmHEBbkW+KFo7UEyhKsNeHlMgyV8eJo4kQpqId9ub6HCoc+XWcxl8lcBTATwDax8GfZtHa054/f/bNg8ZcnyOhHjBc834E8MJ9/vML8aYZQX1hd1PP3WFXkhMRfYkIlpOoGomc0WRRTnch+XAQWG2KTNJNLbuy68C/cQMwXOWrAKkdgz8A8kMdg9X5fn/gQcI7POXLaMk3AGbe/P8SbF0D1KcGRGXpIJJpIQkWBHhnsf/Ie3GF0DmnMxmQT8bg7RellXr8ze+Ox3gAcBvNf+iUUhH5FODLSvScAerDGpiVxTAyGUYKzICA34nCwbhDyHB7N4L8PAofhVzh9jfvjffR/ZZTnupIsR8G0C9EjW7Tfnii/dBgrPL0u83kmjHy33Z3Z/zG97uKi7xpWA8GHZpE1mcZRne8MvXblfbxqQAWR+Fp+mdW5hZPjAqu5JVlhrTwOgrXi2ABbjjchF4FYGvi0qhprgagjYod4OeldXWRWBUEtdBjEH4mwIJ7vF2V4Dqgot0+NEFdPAqmdZ5tAXA8Slx6LrpKsxMHQJge5ft1v0oe2OOu+PZ39+LCOFqImqiXo8JzAeBkXlnmnoKK9LgACJl2R9gELsHW1saUwKCpnbIoa8UMTokVgGXJmSjHkfNWUlWDy9d6USVdyoiEF8b1iElxQKHuPG1D/bCtVEBhCiykMQQFgCK2mN2sSx+tkdcbhGq7wKSkK9RnmsCG2xVSLsflAR1S6eloWhawtF8yGJGskSJDBdQR8pIjZMXcfFmm1gOg2lRaSRdT1AD1PBPQbCAyxcRMifCpc41HEtILNbh9s8SSvYTUmBp2LDGOdCOB1OD0XbeByWliwY5bugc9nU2T4wqhCx7PNAV9bSGwARp3TzVaP0j09GQUzJubLUgefY3SEHMh63MVr4FIlYL+7C1AlCwAmxM+/plYy6hhgN2xp1HBawAr72krnH3uoicTaXyHx7uIwKZoT0QhUhszAAI7x7ivL0a60/jp77yyTFrWt6N6rxE99c7OkxdiBhC2y/cAorXHpama/aNG8dkOO32b6p3zTzXmeysfPu4LkkKafA3IrGjfCfPtuGfiPlfx+xBsuWtwpa3zIuy2YaoZ5o0eSQc5TVnb53aeeAuk9eBtRvkqUH0MoTsqA7nL429eFzeA3lyfQ08eaiNgCrjTYNozQ1S+WyUfQCosTLqZ+oiDUNwhggPujpZTuCMXGwUV6cJgKYnNIJffR3df2NLLZ5871puQrUR//pzpU7rOnAfJP53eDELrsoPpk4RIGRn5xqIBAAdBOCAoBjBjPJsJUdZSt9HSOGFrld5cn2M4KbwfkIUJzqYhQlYWdJ7YN2FrFQCY3nPsmk61AuSuRNYyUdaiRBk/7tViR37Zcir1JYC8WNshgjWWPfhq0dmzVx/5bhQAWnLKU1Md8gZHOsjxAgmD2GEKq4s6m1sxASQPu16HiBh53goqPg9ac0TEcwNQEOBlQAZEcMgC94dDZt2c7r8GMIH0H43ZRDC51RVCAAAAAElFTkSuQmCC">
-    <div class="brand-text"><strong>Open</strong>Shift</div>
-  </a>
-  <h1>
-    Welcome to OpenShift
-  </h1>
-  <p>
-    Place your application here
-  </p>
-  <p>
-    In order to commit to your new project, go to your projects git repo (created with the rhc app create command).  Make your changes, then run:
-  </p>
-  <pre>
-    git commit -a -m 'Some commit message'
-    git push
-  </pre>
-  <p>
-    Then reload this page.
-  </p>
-  
-  <h2>
-    What's next?
-  </h2>
-  <ul>
-    <li>
-      Why not visit us at <a href="http://www.openshift.com">http://www.openshift.com</a>, or
-    </li>
-    <li>
-      You could get help in the <a href="http://www.openshift.com/forums/openshift">OpenShift forums</a>, or
-    </li>
-    <li>
-      You're welcome to come chat with us in our IRC channel at #openshift on freenode.net
-    </li>
-  </ul>
-</body>
-</html>
+
+<h1>Escolha seu curso</h1>
+
+<tr>
+<td class="impar">
+	<h2>&Aacute;rea I</h2>
+	<a href="mostramaterias.php?curso=101">ARQUITETURA</a><br/>
+	<a href="mostramaterias.php?curso=102">ENGENHARIA CIVIL</a><br/>
+	<a href="mostramaterias.php?curso=103">ENGENHARIA DE MINAS</a><br/>
+	<a href="mostramaterias.php?curso=104">ENGENHARIA EL&Eacute;TRICA</a><br/>
+	<a href="mostramaterias.php?curso=105">ENGENHARIA MEC&Acirc;NICA</a><br/>
+	<a href="mostramaterias.php?curso=106">ENGENHARIA QU&Iacute;MICA</a><br/>
+	<a href="mostramaterias.php?curso=107">ENGENHARIA SANIT&Aacute;RIA</a><br/>
+	<a href="mostramaterias.php?curso=108">F&Iacute;SICA</a><br/>
+	<a href="mostramaterias.php?curso=109">GEOGRAFIA</a><br/>
+	<a href="mostramaterias.php?curso=110">GEOLOGIA</a><br/>
+	<a href="mostramaterias.php?curso=111">MATEM&Aacute;TICA</a><br/>
+	<a href="mostramaterias.php?curso=112">CI&Ecirc;NCIA DA COMPUTA&Ccedil;&Atilde;O</a><br/>
+	<a href="mostramaterias.php?curso=113">QU&Iacute;MICA</a><br/>
+	<a href="mostramaterias.php?curso=116">ESTAT&Iacute;STICA</a><br/>
+	<a href="mostramaterias.php?curso=118">GEOF&Iacute;SICA</a><br/>
+	<a href="mostramaterias.php?curso=181">F&Iacute;SICA NOTURNO</a><br/>
+</td>
+<td class="par">
+	<h2>&Aacute;rea II</h2>
+	<a href="mostramaterias.php?curso=201">AGRONOMIA</a><br/>
+	<a href="mostramaterias.php?curso=202">CI&Ecirc;NCIAS BIOL&Oacute;GICAS</a><br/>
+	<a href="mostramaterias.php?curso=203">ENFERMAGEM</a><br/>
+	<a href="mostramaterias.php?curso=204">FARM&Aacute;CIA</a><br/>
+	<a href="mostramaterias.php?curso=205">MEDICINA</a><br/>
+	<a href="mostramaterias.php?curso=206">MEDICINA VETERIN&Aacute;RIA</a><br/>
+	<a href="mostramaterias.php?curso=207">NUTRI&Ccedil;&Atilde;O</a><br/>
+	<a href="mostramaterias.php?curso=208">ODONTOLOGIA</a><br/>
+	<a href="mostramaterias.php?curso=209">CI&Ecirc;NCIAS NATURAIS</a><br/>
+	<a href="mostramaterias.php?curso=210">FONOAUDIOLOGIA</a><br/>
+</td>
+</tr>
+<tr>
+<td class="par">
+	<h2>&Aacute;rea III</h2>
+	<a href="mostramaterias.php?curso=303">BIBLIOTECONOMIA E DOCUMENTA&Ccedil;&Atilde;O</a><br/>
+	<a href="mostramaterias.php?curso=304">CI&Ecirc;NCIAS CONT&Aacute;BEIS</a><br/>
+	<a href="mostramaterias.php?curso=305">CI&Ecirc;NCIAS ECON&Ocirc;MICAS</a><br/>
+	<a href="mostramaterias.php?curso=306">CI&Ecirc;NCIAS SOCIAIS</a><br/>
+	<a href="mostramaterias.php?curso=307">COMUNICA&Ccedil;&Atilde;O</a><br/>
+	<a href="mostramaterias.php?curso=308">DIREITO </a><br/>
+	<a href="mostramaterias.php?curso=309">FILOSOFIA</a><br/>
+	<a href="mostramaterias.php?curso=310">HISTORIA</a><br/>
+	<a href="mostramaterias.php?curso=311">MUSEOLOGIA</a><br/>
+	<a href="mostramaterias.php?curso=312">PEDAGOGIA</a><br/>
+	<a href="mostramaterias.php?curso=313">PSICOLOGIA</a><br/>
+	<a href="mostramaterias.php?curso=314">SECRETARIADO</a><br/>
+	<a href="mostramaterias.php?curso=315">EDUCA&Ccedil;&Atilde;O F&Iacute;SICA</a><br/>
+	<a href="mostramaterias.php?curso=301">BACHARELADO EM ADMINISTRA&Ccedil;&Atilde;O</a><br/>
+	<a href="mostramaterias.php?curso=317">ARQUIVOLOGIA</a><br/>
+</td>
+<td class="impar">
+	<h2>&Aacute;rea IV</h2>
+	<a href="mostramaterias.php?curso=401">LETRAS VERN&Aacute;CULAS</a><br/>
+	<p></p>
+	
+	<h2>&Aacute;rea V</h2>
+	<a href="mostramaterias.php?curso=501">ARTES PL&Aacute;STICAS</a><br/>
+	<a href="mostramaterias.php?curso=502">COMPOSI&Ccedil;&Atilde;O E REG&Ecirc;NCIA</a><br/>
+	<a href="mostramaterias.php?curso=503">LICENCIATURA EM DAN&Ccedil;A</a><br/>
+	<a href="mostramaterias.php?curso=505">LICENCIATURA EM DESENHO E PL&Aacute;STICA</a><br/>
+	<a href="mostramaterias.php?curso=506">BACH ARTES C&Ecirc;NICAS - DIRE&Ccedil;&Atilde;O TEATRAL</a><br/>
+	<a href="mostramaterias.php?curso=507">LICENCIATURA EM MUSICA</a><br/>
+	<a href="mostramaterias.php?curso=508">CANTO</a><br/>
+	<a href="mostramaterias.php?curso=509">INSTRUMENTO</a><br/>
+	<a href="mostramaterias.php?curso=512">DESENHO INDUSTRIAL</a><br/>
+	<a href="mostramaterias.php?curso=513">DECORA&Ccedil;&Atilde;O</a><br/>
+</td>
+</tr>
+</table>
+
+<p>
+(Guia de matr&iacute;cula atualizado no dia 23 de fevereiro de 2005)<br/>
+(Novos recursos adicionados no dia 3 de mar&ccedil;o de 2005)
+</p>
+
+<?php
+
+rodape();
+
+?>

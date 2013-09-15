@@ -1,0 +1,54 @@
+<html>
+<head>
+
+<style type="text/css">
+span {
+	padding: 4px;
+}
+
+.selec {
+	border-width: 2px 2px 2px 2px;
+	border-style: solid solid solid solid;
+	border-color: black black black black;
+}
+
+.normal {
+	background: yellow;
+}
+
+.pegavel {
+	background: #0c0;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function alternaSelecao(obj) {
+//	alert("[" + obj.className + "]");
+	if (obj.className == "pegavel")
+		obj.className = "pegavel selec";
+	else if (obj.className == "pegavel selec")
+		obj.className = "pegavel";
+}
+
+</script>
+
+</head>
+<body>
+
+<table border="0">
+<tr>
+
+<td>
+	<span class="pegavel" onclick="alternaSelecao(this);">MAT146</span><br/><br/>
+	<span class="pegavel selec" onclick="alternaSelecao(this);">MAT150</span><br/><br/>
+	<span class="normal">MAT999</span><br/><br/>
+	<span class="normal selec">MAT333</span><br/><br/>
+</td>
+
+</tr>
+</table>
+
+</body>
+</html>
