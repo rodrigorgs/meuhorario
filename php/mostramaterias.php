@@ -28,7 +28,7 @@ gravaEstatistica($_REQUEST['curso']);
 	echo '<input type="hidden" name="curso" value="' . $_REQUEST['curso'] .'"/>';
 
 	echo '<p>Veja tamb&eacute;m o <a target="_blank" href="' . 
-			'http://www.supac.ufba.br/GuiaColeg/' . $_REQUEST['curso'] .
+			'https://twiki.ufba.br/twiki/pub/SUPAC/GradGuiaAreaI/' . $_REQUEST['curso'] .
 			'.html">guia de matr&iacute;cula no site da SUPAC</a>.</p>'
 ?>
 
