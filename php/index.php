@@ -29,9 +29,9 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
   <a href="mostramaterias.php?curso=102">Engenharia Civil</a><br/>
   <a href="mostramaterias.php?curso=103">Engenharia de Minas</a><br/>
   <a href="mostramaterias.php?curso=104">Engenharia El&eacute;trica</a><br/>
-  <a href="mostramaterias.php?curso=105">Engenharia Mec√¢nica</a><br/>
+  <a href="mostramaterias.php?curso=105">Engenharia Mec‚nica</a><br/>
   <a href="mostramaterias.php?curso=106">Engenharia Qu&iacute;mica</a><br/>
-  <a href="mostramaterias.php?curso=107">Engenharia Sanit&iacute;ria e Ambiental</a><br/>
+  <a href="mostramaterias.php?curso=107">Engenharia Sanit·ria e Ambiental</a><br/>
   <a href="mostramaterias.php?curso=108">F&iacute;sica</a><br/>
   <a href="mostramaterias.php?curso=109">Geografia</a><br/>
   <a href="mostramaterias.php?curso=110">Geologia</a><br/>
@@ -58,7 +58,7 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
 	<h2>&Aacute;rea III</h2>
     <a href="mostramaterias.php?curso=303">Biblioteconomia e Documenta&ccedil;&atilde;o</a><br/>
     <a href="mostramaterias.php?curso=304">Ci&ecirc;ncias Cont&aacute;beis</a><br/>
-    <a href="mostramaterias.php?curso=305">Ci&ecirc;ncias Econ√¥micas</a><br/>
+    <a href="mostramaterias.php?curso=305">Ci&ecirc;ncias EconÙmicas</a><br/>
     <a href="mostramaterias.php?curso=306">Ci&ecirc;ncias Sociais</a><br/>
     <a href="mostramaterias.php?curso=307">Comunica&ccedil;&atilde;o</a><br/>
     <a href="mostramaterias.php?curso=308">Direito</a><br/>
