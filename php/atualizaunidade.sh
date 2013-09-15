@@ -1,7 +1,11 @@
 #!/bin/bash
 URL_BASE="https://twiki.ufba.br/twiki/pub/SUPAC/MatriculaGraduacaoUnidade/"
-UNIDADES="ADM AGR ARQ \
-BIO COM DAN DIR \
+UNIDADES="ADM \
+ARQ \
+BIO \
+COM \
+DAN \
+DIR \
 EBA \
 ECO \
 EDC \
