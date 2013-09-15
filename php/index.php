@@ -36,7 +36,7 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
   <a href="mostramaterias.php?curso=109">Geografia</a><br/>
   <a href="mostramaterias.php?curso=110">Geologia</a><br/>
   <a href="mostramaterias.php?curso=111">Matemática</a><br/>
-  <a href="mostramaterias.php?curso=112">Ciência da Computação</a><br/>
+  <a href="mostramaterias.php?curso=112">Ci&ecirc;ncia da Computação</a><br/>
   <a href="mostramaterias.php?curso=113">Química</a><br/>
   <a href="mostramaterias.php?curso=116">Estatística</a><br/>
   <a href="mostramaterias.php?curso=118">Geofísica</a><br/>
@@ -56,27 +56,17 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
 </td>
 <td class="par">
 	<h2>&Aacute;rea II</h2>
-	<a href="mostramaterias.php?curso=201">AGRONOMIA</a><br/>
-	<a href="mostramaterias.php?curso=202">CI&Ecirc;NCIAS BIOL&Oacute;GICAS</a><br/>
-	<a href="mostramaterias.php?curso=203">ENFERMAGEM</a><br/>
-	<a href="mostramaterias.php?curso=204">FARM&Aacute;CIA</a><br/>
-	<a href="mostramaterias.php?curso=205">MEDICINA</a><br/>
-	<a href="mostramaterias.php?curso=206">MEDICINA VETERIN&Aacute;RIA</a><br/>
-	<a href="mostramaterias.php?curso=207">NUTRI&Ccedil;&Atilde;O</a><br/>
-	<a href="mostramaterias.php?curso=208">ODONTOLOGIA</a><br/>
-	<a href="mostramaterias.php?curso=209">CI&Ecirc;NCIAS NATURAIS</a><br/>
-	<a href="mostramaterias.php?curso=210">FONOAUDIOLOGIA</a><br/><a href="mostramaterias.php?curso=202">Ciências Biológicas</a><br/>
     <a href="mostramaterias.php?curso=203">Enfermagem</a><br/>
     <a href="mostramaterias.php?curso=204">Farmácia</a><br/>
     <a href="mostramaterias.php?curso=205">Medicina</a><br/>
     <a href="mostramaterias.php?curso=206">Medicina Veterinária</a><br/>
     <a href="mostramaterias.php?curso=207">Nutrição</a><br/>
     <a href="mostramaterias.php?curso=208">Odontologia</a><br/>
-    <a href="mostramaterias.php?curso=209">Ciências Naturais</a><br/>
+    <a href="mostramaterias.php?curso=209">Ci&ecirc;ncias Naturais</a><br/>
     <a href="mostramaterias.php?curso=210">Fonoaudiologia</a><br/>
     <a href="mostramaterias.php?curso=219">Zootecnia</a><br/>
     <a href="mostramaterias.php?curso=222">Fisioterapia</a><br/>
-    <a href="mostramaterias.php?curso=280">Ciências Biológicas (noturno)</a><br/>
+    <a href="mostramaterias.php?curso=280">Ci&ecirc;ncias Biológicas (noturno)</a><br/>
     <a href="mostramaterias.php?curso=281">Farmácia (noturno)</a><br/>
     <a href="mostramaterias.php?curso=282">Gastronomia (noturno)</a><br/>
     <a href="mostramaterias.php?curso=283">Saúde Coletiva (noturno)</a><br/>
@@ -88,9 +78,9 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
 <td class="par">
 	<h2>&Aacute;rea III</h2>
     <a href="mostramaterias.php?curso=303">Biblioteconomia e Documentação</a><br/>
-    <a href="mostramaterias.php?curso=304">Ciências Contábeis</a><br/>
-    <a href="mostramaterias.php?curso=305">Ciências Econômicas</a><br/>
-    <a href="mostramaterias.php?curso=306">Ciências Sociais</a><br/>
+    <a href="mostramaterias.php?curso=304">Ci&ecirc;ncias Contábeis</a><br/>
+    <a href="mostramaterias.php?curso=305">Ci&ecirc;ncias Econômicas</a><br/>
+    <a href="mostramaterias.php?curso=306">Ci&ecirc;ncias Sociais</a><br/>
     <a href="mostramaterias.php?curso=307">Comunicação</a><br/>
     <a href="mostramaterias.php?curso=308">Direito</a><br/>
     <a href="mostramaterias.php?curso=309">Filosofia</a><br/>
@@ -103,10 +93,10 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
     <a href="mostramaterias.php?curso=301">Administração</a><br/>
     <a href="mostramaterias.php?curso=317">Arquivologia</a><br/>
     <a href="mostramaterias.php?curso=325">Serviço Social</a><br/>
-    <a href="mostramaterias.php?curso=380">Ciências Contábeis (noturno)</a><br/>
+    <a href="mostramaterias.php?curso=380">Ci&ecirc;ncias Contábeis (noturno)</a><br/>
     <a href="mostramaterias.php?curso=381">Arquivologia (noturno)</a><br/>
     <a href="mostramaterias.php?curso=382">Direito (noturno)</a><br/>
-    <a href="mostramaterias.php?curso=383">Gênero e Diversidade (noturno)</a><br/>
+    <a href="mostramaterias.php?curso=383">G&ecirc;nero e Diversidade (noturno)</a><br/>
     <a href="mostramaterias.php?curso=384">C.S.T. de Gestão Pública e Gestão Social (noturno)</a><br/>
 </td>
 <td class="impar">
@@ -119,10 +109,10 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
 	
 	<h2>&Aacute;rea V</h2>
     <a href="mostramaterias.php?curso=501">Artes Plásticas</a><br/>
-    <a href="mostramaterias.php?curso=502">Composição e Regência</a><br/>
+    <a href="mostramaterias.php?curso=502">Composição e Reg&ecirc;ncia</a><br/>
     <a href="mostramaterias.php?curso=503">Licenciatura em Dança</a><br/>
     <a href="mostramaterias.php?curso=505">Licenciatura em Desenho e Plástica</a><br/>
-    <a href="mostramaterias.php?curso=506">Artes Cênicas - Direção Teatral</a><br/>
+    <a href="mostramaterias.php?curso=506">Artes C&ecirc;nicas - Direção Teatral</a><br/>
     <a href="mostramaterias.php?curso=507">Licenciatura em Música</a><br/>
     <a href="mostramaterias.php?curso=508">Canto</a><br/>
     <a href="mostramaterias.php?curso=509">Instrumento</a><br/>
@@ -132,8 +122,8 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
     <a href="mostramaterias.php?curso=581">Dança (noturno)</a><br/>
 
 	<h2>Bacharelados Interdisciplinares</h2>
-    <a href="mostramaterias.php?curso=189">B.I. em Ciência e Tecnologia (Noturno)</a><br/>
-    <a href="mostramaterias.php?curso=190">B.I. em Ciência e Tecnologia</a><br/>
+    <a href="mostramaterias.php?curso=189">B.I. em Ci&ecirc;ncia e Tecnologia (Noturno)</a><br/>
+    <a href="mostramaterias.php?curso=190">B.I. em Ci&ecirc;ncia e Tecnologia</a><br/>
     <a href="mostramaterias.php?curso=226">B.I. em Saúde</a><br/>
     <a href="mostramaterias.php?curso=286">B.I. em Saúde (noturno)</a><br/>
     <a href="mostramaterias.php?curso=327">B.I. em Humanidades</a><br/>
