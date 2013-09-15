@@ -55,7 +55,6 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
   <a href="mostramaterias.php?curso=197">C.S.T. de Transporte Terrestre</a><br/>
 </td>
 <td class="par">
-
 	<h2>&Aacute;rea III</h2>
     <a href="mostramaterias.php?curso=303">Biblioteconomia e Documenta&ccedil;&atilde;o</a><br/>
     <a href="mostramaterias.php?curso=304">Ci&ecirc;ncias Cont&aacute;beis</a><br/>
@@ -79,10 +78,17 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
     <a href="mostramaterias.php?curso=383">G&ecirc;nero e Diversidade (noturno)</a><br/>
     <a href="mostramaterias.php?curso=384">C.S.T. de Gest&atilde;o P&uacute;blica e Gest&atilde;o Social (noturno)</a><br/>
 
+	<h2>&Aacute;rea IV</h2>
+    <a href="mostramaterias.php?curso=401">Letras Vern&aacute;culas</a><br/>
+    <a href="mostramaterias.php?curso=402">Letras Vern&aacute;culas c/ L&iacute;ngua Estrangeira</a><br/>
+    <a href="mostramaterias.php?curso=403">L&iacute;ngua Estrangeira</a><br/>
+    <a href="mostramaterias.php?curso=480">Letras Vern&aacute;culas (noturno)</a><br/>
+    <a href="mostramaterias.php?curso=481">L&iacute;ngua Estrangeira (noturno)</a><br/>	<p></p>
 </td>
 </tr>
 <tr>
 <td class="par">
+
   	<h2>&Aacute;rea II</h2>
     <a href="mostramaterias.php?curso=203">Enfermagem</a><br/>
     <a href="mostramaterias.php?curso=204">Farm&aacute;cia</a><br/>
@@ -99,14 +105,11 @@ v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
     <a href="mostramaterias.php?curso=282">Gastronomia (noturno)</a><br/>
     <a href="mostramaterias.php?curso=283">Sa&uacute;de Coletiva (noturno)</a><br/>
     <a href="mostramaterias.php?curso=284">Biotecnologia (noturno)</a><br/>
+
+
 </td>
 <td class="impar">
-	<h2>&Aacute;rea IV</h2>
-    <a href="mostramaterias.php?curso=401">Letras Vern&aacute;culas</a><br/>
-    <a href="mostramaterias.php?curso=402">Letras Vern&aacute;culas c/ L&iacute;ngua Estrangeira</a><br/>
-    <a href="mostramaterias.php?curso=403">L&iacute;ngua Estrangeira</a><br/>
-    <a href="mostramaterias.php?curso=480">Letras Vern&aacute;culas (noturno)</a><br/>
-    <a href="mostramaterias.php?curso=481">L&iacute;ngua Estrangeira (noturno)</a><br/>	<p></p>
+
 	
 	<h2>&Aacute;rea V</h2>
     <a href="mostramaterias.php?curso=501">Artes Pl&aacute;sticas</a><br/>
