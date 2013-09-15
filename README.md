@@ -1,3 +1,4 @@
-The OpenShift `php` cartridge documentation can be found at:
+phphorario
+==========
 
-https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-php/README.md
+Fork of phphorario from Rodrigo Rocha, available on http://sourceforge.net/projects/tcc
