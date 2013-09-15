@@ -28,7 +28,7 @@ echo ">\n\n";
 function rodape() {
 ?>
     <p>
-    E-mail para contato: <a href="mailto:suporte@matricula.cjb.net">    suporte@matricula.cjb.net</a>
+    E-mail para contato: <a href="mailto:asrail1+meuhorario@gmail.com">    asrail1+meuhorario@gmail.com</a>
     </p>
 
   </body>
