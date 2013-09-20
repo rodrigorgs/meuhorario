@@ -17,26 +17,26 @@ MAT_6="189 190 226 286 327 387 515 580"
 
 cd guia
 
-# for i in ${MAT_1}
-# do
-# 	wget ${URL_BASE}${AREA_1}${i}.html -O ${i}.html
-# done
-# for i in ${MAT_2}
-# do
-# 	wget ${URL_BASE}${AREA_2}${i}.html -O ${i}.html
-# done
-# for i in ${MAT_3}
-# do
-# 	wget ${URL_BASE}${AREA_3}${i}.html -O ${i}.html
-# done
-# for i in ${MAT_4}
-# do
-# 	wget ${URL_BASE}${AREA_4}${i}.html -O ${i}.html
-# done
-# for i in ${MAT_5}
-# do
-# 	wget ${URL_BASE}${AREA_5}${i}.html -O ${i}.html
-# done
+for i in ${MAT_1}
+do
+	wget ${URL_BASE}${AREA_1}${i}.html -O ${i}.html
+done
+for i in ${MAT_2}
+do
+	wget ${URL_BASE}${AREA_2}${i}.html -O ${i}.html
+done
+for i in ${MAT_3}
+do
+	wget ${URL_BASE}${AREA_3}${i}.html -O ${i}.html
+done
+for i in ${MAT_4}
+do
+	wget ${URL_BASE}${AREA_4}${i}.html -O ${i}.html
+done
+for i in ${MAT_5}
+do
+	wget ${URL_BASE}${AREA_5}${i}.html -O ${i}.html
+done
 for i in ${MAT_6}
 do
 	wget ${URL_BASE}${AREA_6}${i}.html -O ${i}.html
