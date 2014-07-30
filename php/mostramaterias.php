@@ -27,9 +27,6 @@ gravaEstatistica($_REQUEST['curso']);
 	echo "<h2>$curso->nome - $curso->semestre</h2>\n";
 	echo '<input type="hidden" name="curso" value="' . $_REQUEST['curso'] .'"/>';
 
-	echo '<p>Veja tamb&eacute;m o <a target="_blank" href="' . 
-			'http://www.supac.ufba.br/GuiaColeg/' . $_REQUEST['curso'] .
-			'.html">guia de matr&iacute;cula no site da SUPAC</a>.</p>'
 ?>
 
 <small>
@@ -134,9 +131,6 @@ Escolha aqui as mat&eacute;rias eletivas ou optativas que voc&ecirc; deseja pega
 n&atilde;o apareceram na listagem acima.<br/>
 &Eacute; necess&aacute;rio fornecer o c&oacute;digo da mat&eacute;ria e a
 unidade da UFBA que fornece esta mat&eacute;ria.<br/>
-Para escolher e ver os c&oacute;digos das mat&eacute;rias, veja o 
-<a target="_blank" href="http://www.supac.ufba.br/GUIA2.htm">Guia
-por Unidade (SUPAC)</a>.
 </p>
 
 <table border="0">

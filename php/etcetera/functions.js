@@ -1,4 +1,4 @@
-/* $Id: functions.js,v 1.1 2005/04/01 20:33:22 rodrigorgs Exp $ */
+/* $Id: functions.js,v 2.11 2005/01/07 11:48:45 nijel Exp $ */
 
 
 /**
