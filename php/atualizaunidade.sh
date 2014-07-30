@@ -1,5 +1,5 @@
 #!/bin/bash
-URL_BASE="https://twiki.ufba.br/twiki/pub/SUPAC/MatriculaGraduacaoUnidade/"
+URL_BASE="https://twiki.ufba.br/twiki/pub/SUPAC/MatriculaGraduacaoUnidade1/"
 UNIDADES="ADM \
 ARQ \
 BIO \

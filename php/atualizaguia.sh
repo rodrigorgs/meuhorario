@@ -1,12 +1,12 @@
 #!/bin/bash
 
 URL_BASE="https://twiki.ufba.br/twiki/pub/SUPAC/"
-AREA_1="GradGuiaAreaI/"
-AREA_2="GradGuiaAreaII/"
-AREA_3="GradGuiaAreaIII/"
-AREA_4="GradGuiaAreaIV/"
-AREA_5="GradGuiaAreaV/"
-AREA_6="GradGuiaIHAC/"
+AREA_1="GradGuiaAreaI1/"
+AREA_2="GradGuiaAreaII1/"
+AREA_3="GradGuiaAreaIII1/"
+AREA_4="GradGuiaAreaIV1/"
+AREA_5="GradGuiaAreaV1/"
+AREA_6="GradGuiaIHAC1/"
 
 MAT_1="101 102 103 104 105 106 107 108 109 110 111 112 113 116 118 119 181 182 183 184 185 186 187 188 194 195 196 197"
 MAT_2="202 203 204 205 206 207 208 209 210 219 222 280 281 282 283 284"
