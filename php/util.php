@@ -23,6 +23,14 @@ if ($onload)
     echo ' onLoad="mostraApelidosSelecionados();"';
 
 echo ">\n\n";      
+echo <<<FIM
+<p>
+<a href="http://meuhorario.dcc.ufba.br/">
+<img src="images/meuhorario.jpg" alt="meuhorario (logotipo)" border="0"/>
+</a>
+</p>
+
+FIM;
 }
 
 function rodape() {
