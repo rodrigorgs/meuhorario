@@ -1,40 +1,43 @@
 #!/bin/bash
-URL_BASE="http://www.supac.ufba.br/GuiaUnid/"
+URL_BASE="https://twiki.ufba.br/twiki/pub/SUPAC/MatriculaGraduacaoUnidade1/"
 
-UNIDADES="ADM \
-AGR  \
-ARQ \
-BIO \
-COM \
-DAN \
-DIR \
-EBA \
-ECO \
-EDC \
-ENF \
-ENG \
-FAR \
-FCC \
-FCH \
-FIS \
-FOF \
-GEO \
-ICI \
-ICS \
-LET \
-MAT \
-MED \
-MEV \
-MUS \
-NUT \
-QUI \
-TEA"
+UNIDADES="ARQ
+ENG
+FIS
+GEO
+MAT
+QUI
+BIO
+ENF
+FAR
+ICS
+MED
+MEV
+NUT
+FOF
+ISC
+ADM
+FCC
+ECO
+COM
+DIR
+EDC
+FCH
+IPS
+ICI
+LET
+EBA
+DAN
+TEA
+MUS
+HAC
+IMS"
 
 cd ../guia
 
 for i in $UNIDADES
 do
-	wget ${URL_BASE}${i}.html -O ${i}.html
+	wget ${URL_BASE}${i}.html
 done
 
 cd -
