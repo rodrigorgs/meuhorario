@@ -103,7 +103,7 @@ END;
 echo <<<END
 		</td>
 		<td>
-			<input type="text" name="ap$materia->codigo" id="ap$materia->codigo" size="20" class="apelido"/>
+			<input type="text" name="ap$materia->codigo" id="ap$materia->codigo" size="20" class="apelido" placeholder="apelido" />
 		</td>
 	</tr>
 END;
