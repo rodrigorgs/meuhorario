@@ -1,4 +1,4 @@
-phphorario
-==========
+# meuhorario
 
-Fork of phphorario from Rodrigo Rocha, available on http://sourceforge.net/projects/tcc
+Site de simulação de matrícula em <http://meuhorario.dcc.ufba.br/>.
+
