@@ -4,11 +4,7 @@ require_once('util.php');
 cabecalho("Escolha seu curso", false);
 
 /* expressao regular (VIM):
-<<<<<<< HEAD
 %s/\(\d\d\d\) \(.*\)/<a href="mostramaterias.php?curso=\1">\2<\/a><br\/>/g
-=======
-%s/\(\[[:digit:]]*\) \(.*\)/<a href="mostramaterias.php?curso=\1">\2<\/a><br\/>/g
->>>>>>> asrail/master
 */
 ?>
 
@@ -22,9 +18,6 @@ Aqui, voc&ecirc; escolhe as mat&eacute;rias, imp&otilde;e
 restri&ccedil;&otilde;es e, no final, s&atilde;o mostradas
 v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
 </p>
-
->>>>>>> asrail/master
-
 
 <h1>Escolha seu curso</h1>
 
