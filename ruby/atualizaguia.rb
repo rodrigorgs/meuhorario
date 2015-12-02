@@ -3,12 +3,13 @@
 require 'net/https'
 require 'open-uri'
 
-AREAS = ['AreaI1', '&Aacute;rea I',
-    'AreaII1', '&Aacute;rea II',
-    'AreaIII1', '&Aacute;rea III',
-    'AreaIV1', '&Aacute;rea IV',
-    'AreaV1', '&Aacute;rea V',
-    'IHAC1', 'Bacharelados Interdisciplinares e Tecn&oacute;logos']
+AREAS = ['AreaI', '&Aacute;rea I',
+    'AreaII', '&Aacute;rea II',
+    'AreaIII', '&Aacute;rea III',
+    'AreaIV', '&Aacute;rea IV',
+    'AreaV', '&Aacute;rea V',
+    'IHAC', 'Bacharelados Interdisciplinares e Tecn&oacute;logos',
+    'IMS', 'Campus Vit&oacute;ria da Conquista - Instituto Multidisciplinar em Sa&uacute;de']
 BASE_URL = 'https://twiki.ufba.br/twiki/bin/view/SUPAC/GradGuia'
 
 def download(url, dest=nil)
