@@ -3,15 +3,6 @@
 require 'net/https'
 require 'open-uri'
 
-AREAS = ['AreaI', '&Aacute;rea I',
-    'AreaII', '&Aacute;rea II',
-    'AreaIII', '&Aacute;rea III',
-    'AreaIV', '&Aacute;rea IV',
-    'AreaV', '&Aacute;rea V',
-    'IHAC', 'Bacharelados Interdisciplinares e Tecn&oacute;logos',
-    'IMS', 'Campus Vit&oacute;ria da Conquista - Instituto Multidisciplinar em Sa&uacute;de']
-BASE_URL = 'https://twiki.ufba.br/twiki/bin/view/SUPAC/GradGuia'
-
 def download(url, dest=nil)
   f = open(url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE)
   contents = f.read
@@ -23,6 +14,18 @@ def download(url, dest=nil)
   end
   contents
 end
+
+###################
+# Guia de graduacao
+
+AREAS = ['AreaI', '&Aacute;rea I',
+    'AreaII', '&Aacute;rea II',
+    'AreaIII', '&Aacute;rea III',
+    'AreaIV', '&Aacute;rea IV',
+    'AreaV', '&Aacute;rea V',
+    'IHAC', 'Bacharelados Interdisciplinares e Tecn&oacute;logos',
+    'IMS', 'Campus Vit&oacute;ria da Conquista - Instituto Multidisciplinar em Sa&uacute;de']
+BASE_URL = 'https://twiki.ufba.br/twiki/bin/view/SUPAC/GradGuia'
 
 index = StringIO.new
 
@@ -42,3 +45,12 @@ end
 
 s = index.string.encode('iso-8859-1', 'utf-8')
 File.open('../php/listacursos.htm', 'w') { |f| f.write(s) }
+
+#############
+# Por unidade
+
+page = download('https://twiki.ufba.br/twiki/bin/view/SUPAC/MatriculaGraduacaoUnidade')
+page.scan(%r{href="https://twiki.ufba.br/twiki/pub/SUPAC/MatriculaGraduacaoUnidade/(...)[.]html"}) do |m|
+	codigo = m[0]
+	download("#{BASE_URL_UNIDADE}/#{codigo}.html", '../php/guia')
+end
