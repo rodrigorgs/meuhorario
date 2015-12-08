@@ -18,33 +18,33 @@ end
 ###################
 # Guia de graduacao
 
-AREAS = ['AreaI', '&Aacute;rea I',
-    'AreaII', '&Aacute;rea II',
-    'AreaIII', '&Aacute;rea III',
-    'AreaIV', '&Aacute;rea IV',
-    'AreaV', '&Aacute;rea V',
-    'IHAC', 'Bacharelados Interdisciplinares e Tecn&oacute;logos',
-    'IMS', 'Campus Vit&oacute;ria da Conquista - Instituto Multidisciplinar em Sa&uacute;de']
-BASE_URL = 'https://twiki.ufba.br/twiki/bin/view/SUPAC/GradGuia'
+# AREAS = ['AreaI', '&Aacute;rea I',
+#     'AreaII', '&Aacute;rea II',
+#     'AreaIII', '&Aacute;rea III',
+#     'AreaIV', '&Aacute;rea IV',
+#     'AreaV', '&Aacute;rea V',
+#     'IHAC', 'Bacharelados Interdisciplinares e Tecn&oacute;logos',
+#     'IMS', 'Campus Vit&oacute;ria da Conquista - Instituto Multidisciplinar em Sa&uacute;de']
+# BASE_URL = 'https://twiki.ufba.br/twiki/bin/view/SUPAC/GradGuia'
 
-index = StringIO.new
+# index = StringIO.new
 
-AREAS.each_slice(2) do |area, nome_area|
-  url = "#{BASE_URL}#{area}"
-  puts url
-  page = download(url)
+# AREAS.each_slice(2) do |area, nome_area|
+#   url = "#{BASE_URL}#{area}"
+#   puts url
+#   page = download(url)
 
-  index.puts "<h2>#{nome_area}</h2>"
+#   index.puts "<h2>#{nome_area}</h2>"
 
-  page.scan(/(\d{3}) <a href="(.+?)".*?>(.+?)</) do |m|
-    codigo, url, nome = m
-    download(url, '../php/guia')
-    index.puts %Q{<a href="mostramaterias.php?curso=#{codigo}">#{nome}</a> &nbsp; }
-  end
-end
+#   page.scan(/(\d{3}) <a href="(.+?)".*?>(.+?)</) do |m|
+#     codigo, url, nome = m
+#     download(url, '../php/guia')
+#     index.puts %Q{<a href="mostramaterias.php?curso=#{codigo}">#{nome}</a> &nbsp; }
+#   end
+# end
 
-s = index.string.encode('iso-8859-1', 'utf-8')
-File.open('../php/listacursos.htm', 'w') { |f| f.write(s) }
+# s = index.string.encode('iso-8859-1', 'utf-8')
+# File.open('../php/listacursos.htm', 'w') { |f| f.write(s) }
 
 #############
 # Por unidade
@@ -52,5 +52,5 @@ File.open('../php/listacursos.htm', 'w') { |f| f.write(s) }
 page = download('https://twiki.ufba.br/twiki/bin/view/SUPAC/MatriculaGraduacaoUnidade')
 page.scan(%r{href="https://twiki.ufba.br/twiki/pub/SUPAC/MatriculaGraduacaoUnidade/(...)[.]html"}) do |m|
 	codigo = m[0]
-	download("#{BASE_URL_UNIDADE}/#{codigo}.html", '../php/guia')
+	download("https://twiki.ufba.br/twiki/pub/SUPAC/MatriculaGraduacaoUnidade/#{codigo}.html", '../php/guia')
 end
