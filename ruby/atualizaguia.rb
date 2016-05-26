@@ -3,6 +3,17 @@
 require 'net/https'
 require 'open-uri'
 
+###################
+#
+# Essas duas URLs são mudadas todo o semestre. É preciso entrar no site
+# www.supac.ufba.br para obter as novas URLs
+#
+
+BASE_URL = 'https://twiki.ufba.br/twiki/bin/view/SUPAC/GradGuia'
+BASE_URL_UNIDADE = 'https://twiki.ufba.br/twiki/bin/view/SUPAC/MatriculaGraduacaoUnidade1'
+
+###################
+
 def download(url, dest=nil)
   f = open(url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE)
   contents = f.read
@@ -25,7 +36,6 @@ AREAS = ['AreaI', '&Aacute;rea I',
     'AreaV', '&Aacute;rea V',
     'IHAC', 'Bacharelados Interdisciplinares e Tecn&oacute;logos',
     'IMS', 'Campus Vit&oacute;ria da Conquista - Instituto Multidisciplinar em Sa&uacute;de']
-BASE_URL = 'https://twiki.ufba.br/twiki/bin/view/SUPAC/GradGuia'
 
 index = StringIO.new
 
@@ -49,10 +59,9 @@ File.open('../php/listacursos.htm', 'w') { |f| f.write(s) }
 #############
 # Por unidade
 
-BASE_URL_UNIDADE = 'https://twiki.ufba.br/twiki/bin/view/SUPAC/MatriculaGraduacaoUnidade1'
-
+PUB_URL_UNIDADE = BASE_URL_UNIDADE.gsub('bin/view', 'pub')
 page = download(BASE_URL_UNIDADE)
-page.scan(%r{href="#{BASE_URL_UNIDADE}/(...)[.]html"}) do |m|
+page.scan(/href="#{Regexp.quote(PUB_URL_UNIDADE)}\/(...)[.]html"/) do |m|
 	codigo = m[0]
-	download("#{BASE_URL_UNIDADE}/#{codigo}.html", '../php/guia')
+	download("#{PUB_URL_UNIDADE}/#{codigo}.html", '../php/guia')
 end
