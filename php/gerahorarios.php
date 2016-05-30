@@ -132,7 +132,9 @@ class GeraHorarios {
 						$turma->codigo, $_REQUEST) ||
 						$_REQUEST[$materia->codigo . '-' . 
 						$turma->codigo] != 'on') {
-					unset($this->curso->listaDeMaterias[$i]->listaDeTurmas[$j]);
+					if (isset($this->curso->listaDeMaterias[$i]->listaDeTurmas[$j])) {
+						unset($this->curso->listaDeMaterias[$i]->listaDeTurmas[$j]);
+					}
 				}
 			}
 		}
