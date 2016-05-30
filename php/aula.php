@@ -4,7 +4,9 @@ class Aula {
 	var $listaDeDocentes;
 	var $dia;
 	var $horaini;
+	var $minutoini;
 	var $horafim;
+	var $minutofim;
 
 	function Aula() {
 		$this->listaDeDocentes = array();
@@ -17,6 +19,9 @@ class Aula {
 		if (trim($horario) != "") {
 			$hi = (int)substr($horario, 0, 2);
 			$hf = (int)substr($horario, 9, 2);
+
+			$this->minutoini = substr($horario, 3, 2);
+			$this->minutofim = substr($horario, 12, 2);
 
 			if ($hi < $this->horaini)
 				$this->horaini = $hi;

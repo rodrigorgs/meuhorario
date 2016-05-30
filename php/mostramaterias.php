@@ -88,8 +88,8 @@ END;
 		echo "<td>$turma->vagas vagas</td>\n";
 		foreach ($turma->listaDeAulas as $k => $aula) {
 			echo "<td>$aula->dia</td>";
-			echo "<td>$aula->horaini" . ':00 &agrave;s ' .
-					"$aula->horafim" . ':00</td>';
+			echo "<td>$aula->horaini" . ':' . $aula->minutoini . ' &agrave;s ' .
+					"$aula->horafim" . ':' . $aula->minutofim . '</td>';
 			echo "<td>";
 			foreach ($aula->listaDeDocentes as $l => $docente)
 				echo $docente . '<br/>';
