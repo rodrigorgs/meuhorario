@@ -1,5 +1,6 @@
 <?php
 require_once('util.php');
+require_once('mixpanel.php');
 
 cabecalho("Escolha seu curso", false);
 
@@ -28,7 +29,7 @@ disponibilização na Internet das informações.
 <h2>Atenção - Matrícula WEB</h2>
 <p>
 <b>Este site NÃO tem nenhuma relação com a
-<a href="http://www.siac.ufba.br">Matrícula WEB</a>!</b><br/>
+<a id="anchorSiac" href="http://www.siac.ufba.br">Matrícula WEB</a>!</b><br/>
 A Matrícula WEB é a maneira oficial de se efetuar a matrícula para
 alguns cursos da UFBA.<br/>
 Este site apenas oferece
@@ -52,6 +53,8 @@ O c&oacute;digo fonte do meuhorario est&aacute; dispon&iacute;vel em um
 
 <?php
 
+track_home();
+track_siac();
 rodape();
 
 ?>

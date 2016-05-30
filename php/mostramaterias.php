@@ -4,6 +4,7 @@ require_once('curso.php');
 require_once('util.php');
 require_once('estatistica.php');
 require_once('config.php');
+require_once('mixpanel.php');
 
 cabecalho("Escolha as m&aacute;terias", true);
 
@@ -202,6 +203,7 @@ quer pegar (um nome em cada linha; n&atilde;o use acentos):
 </form>
 
 <?php
+track_selecionou_curso($_REQUEST['curso'], $curso);
 rodape();
 
 #onmouseout="setPointer(this, $num, 'out', '$cor', '$corOver', '$corClick');"
