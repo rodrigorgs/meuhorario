@@ -10,6 +10,7 @@ require_once('turma.php');
 require_once('config.php');
 
 require_once('util.php');
+require_once('mixpanel.php');
 
 cabecalho("Hor&aacute;rios", false);
 
@@ -368,6 +369,7 @@ foreach ($_REQUEST as $k => $v)
 	echo "$k = $v<br/>\n";
 */
 
+track_gerou_horario($_REQUEST, $g->curso);
 rodape();
 
 ?>
