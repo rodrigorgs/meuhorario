@@ -93,4 +93,14 @@ function track_gerou_horario($request, $curso) {
 FIM;
 }
 
+
+function mixpanel_footer() {
+  echo <<<FIM
+<p>
+  Este site exporta dados an&ocirc;nimos de uso para o Mixpanel.
+  <a href="https://mixpanel.com/f/partner" rel="nofollow"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
+</p>
+FIM;
+}
+
 ?>

@@ -53,6 +53,7 @@ O c&oacute;digo fonte do meuhorario est&aacute; dispon&iacute;vel em um
 
 <?php
 
+mixpanel_footer();
 track_home();
 track_siac();
 rodape();
