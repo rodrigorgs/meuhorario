@@ -46,14 +46,14 @@ function track_gerou_horario($request, $curso) {
   $cod_curso = $request['curso'];
   $selected = array_keys($request, 'on');
 
-  $cod_materias = [];
-  $nome_materias = [];
-  $cod_turmas = [];
+  $cod_materias = array();
+  $nome_materias = array();
+  $cod_turmas = array();
   foreach ($curso->listaDeMaterias as $i => $materia) {
     array_push($cod_materias, $materia->codigo);
     array_push($nome_materias, $materia->nome);
 
-    $cod_turmas_materia = [];
+    $cod_turmas_materia = array();
     foreach ($materia->listaDeTurmas as $i => $turma) {
       array_push($cod_turmas_materia, $turma->codigo);
     }
@@ -68,7 +68,7 @@ function track_gerou_horario($request, $curso) {
   $conflitos = in_array('mostraConflito', $selected) ? 'true' : 'false';
   $carrascos = $request['carrascos'] ? '["' . str_replace("\r\n", '","', $request['carrascos']) . '"]' : '';
 
-  $rest_horario = [];
+  $rest_horario = array();
   foreach ($selected as $i => $s) {
     if (in_array($s, $horarios)) array_push($rest_horario, $s);
   }
@@ -90,6 +90,16 @@ function track_gerou_horario($request, $curso) {
   }
   mixpanel.track('Gerou horarios', horariosInfo);
 </script>
+FIM;
+}
+
+
+function mixpanel_footer() {
+  echo <<<FIM
+<p>
+  Este site exporta dados an&ocirc;nimos de uso para o Mixpanel.
+  <a href="https://mixpanel.com/f/partner" rel="nofollow"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
+</p>
 FIM;
 }
 
