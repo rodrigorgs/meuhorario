@@ -20,21 +20,21 @@ restri&ccedil;&otilde;es e, no final, s&atilde;o mostradas
 v&aacute;rias op&ccedil;&otilde;es de hor&aacute;rio.
 </p>
 <p>
-Todas as informaÃ§Ãµes sobre as matÃ©rias foram tiradas do 
+Todas as informações sobre as matérias foram tiradas do 
 site da <a href="http://www.supac.ufba.br/">SUPAC</a>. Alguns dados
-podem ter sido alterados pelos respectivos departamentos apÃ³s a 
-disponibilizaÃ§Ã£o na Internet das informaÃ§Ãµes.
+podem ter sido alterados pelos respectivos departamentos após a 
+disponibilização na Internet das informações.
 </p>
 
-<h2>AtenÃ§Ã£o - MatrÃ­cula WEB</h2>
+<h2>Atenção - Matrícula WEB</h2>
 <p>
-<b>Este site NÃƒO tem nenhuma relaÃ§Ã£o com a
-<a id="anchorSiac" href="http://www.siac.ufba.br">MatrÃ­cula WEB</a>!</b><br/>
-A MatrÃ­cula WEB Ã© a maneira oficial de se efetuar a matrÃ­cula para
+<b>Este site NÃO tem nenhuma relação com a
+<a id="anchorSiac" href="http://www.siac.ufba.br">Matrícula WEB</a>!</b><br/>
+A Matrícula WEB é a maneira oficial de se efetuar a matrícula para
 alguns cursos da UFBA.<br/>
 Este site apenas oferece
-aos alunos uma forma de visualizar opÃ§Ãµes de horÃ¡rio e nÃ£o tem nenhuma
-influÃªncia na matrÃ­cula do aluno.
+aos alunos uma forma de visualizar opções de horário e não tem nenhuma
+influência na matrícula do aluno.
 </p>
 
 <h1>Escolha seu curso</h1>

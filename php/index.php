@@ -1,9 +1,14 @@
+<?php
+ini_set('default_charset', 'iso-8859-1');
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>MeuHorario</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+  <meta charset="iso-8859-1" />
+  <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
 
   <style type="text/css">
     @import 'https://fonts.googleapis.com/css?family=Ruluko';
