@@ -30,7 +30,7 @@ if ($onload)
 echo ">\n\n";      
 echo <<<FIM
 <p>
-<a href="http://meuhorario.dcc.ufba.br/">
+<a href="http://meuhorario.dcc.ufba.br/index2.php">
 <img src="images/meuhorario.jpg" alt="meuhorario (logotipo)" border="0"/>
 </a>
 </p>
