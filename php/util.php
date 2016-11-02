@@ -1,4 +1,5 @@
 <?php
+ini_set('default_charset', 'iso-8859-1');
 
 function cabecalho($titulo, $onload) {
 echo '<?xml version="1.0" encoding="iso-8859-1"?>' . "\n";
@@ -7,6 +8,7 @@ echo <<<FIM
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta charset="iso-8859-1" />
     <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="pragma" content="no-cache" />
