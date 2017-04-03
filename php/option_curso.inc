@@ -2,8 +2,8 @@
 <option value="ARQ">ARQUITETURA</option>
 <option value="EBA">BELAS ARTES</option>
 <option value="BIO">BIOLOGIA</option>
-<option value="ICI">CIÊNCIA DA INFORMAÇÃO</option>
 <option value="FCC">CIÊNCIAS CONTÁBEIS</option>
+<option value="ICI">CIÊNCIAS DA INFORMAÇÃO</option>
 <option value="ICS">CIÊNCIAS DA SAÚDE</option>
 <option value="ECO">CIÊNCIAS ECONÔMICAS</option>
 <option value="COM">COMUNICAÇÃO</option>
@@ -12,11 +12,10 @@
 <option value="EDC">EDUCAÇÃO</option>
 <option value="ENF">ENFERMAGEM</option>
 <option value="FAR">FARMÁCIA</option>
-<option value="FCH">FILOSOFIA E CIÊNCIAS HUMANAS</option>
+<option value="FCH">FILOSOFIA E CIÊNCIAS HUMANAS</option>
 <option value="FIS">FISICA</option>
 <option value="GEO">GEOCIÊNCIAS</option>
 <option value="HAC">HUMANIDADES E ARTES CÊNICAS</option>
-<option value="IMS">INSTITUTO MULTIDISCIPLINAR EM SAÚDE</option>
 <option value="LET">LETRAS</option>
 <option value="MAT">MATEMÁTICA</option>
 <option value="MED">MEDICINA</option>
